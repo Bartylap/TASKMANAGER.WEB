@@ -12,6 +12,8 @@ using TASKMANAGER.WEB.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TaskManager.Application;
+using TaskManager.Infrastructure;
 
 namespace TASKMANAGER.WEB
 {
@@ -34,6 +36,11 @@ namespace TASKMANAGER.WEB
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddApplication();
+            services.AddInfrastructure();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

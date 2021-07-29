@@ -26,7 +26,9 @@ namespace TaskManager.Application.Interfaces
         int AddNewCategory(CategoryVm category);
         // POBRANIE LISTY ZADAŃ POFILTROWANYCH
         MyErrandListVm GetErandByCategory(int categoryId);
-        void AddErrandToUser(TaskListForAddToUserVm model);
+        // PRZYPISYWANIE ZADANIA DO UŻYTKOWNIAK 
+        void AddErrandToUser(ErrandListForAddToUserVm model);
+        
 
     }
 }
