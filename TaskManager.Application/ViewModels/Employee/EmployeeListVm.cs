@@ -8,5 +8,6 @@ namespace TaskManager.Application.ViewModels.Employee
     {
         public List<EmployeeVm> Employees { get; set; }
         public int Count { get; set; }
+        public string SearchString { get; set; }
     }
 }

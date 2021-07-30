@@ -36,8 +36,8 @@ namespace TaskManager.Infrastructure.Repositories
 
         public void RemoveEmployee(int id)
         {
-            var user = _context.Employees.Find(id);
-            _context.Employees.Remove(user);
+            var employee = _context.Employees.Find(id);
+            _context.Employees.Remove(employee);
             _context.SaveChanges();
         }
 

@@ -35,16 +35,16 @@ namespace TaskManager.Infrastructure
 
 
 
-            builder.Entity<Category>()
-                .HasData(new Category { Id = 1, Name = "Prywatne" },
-             new Category { Id = 2, Name = "Grupowe" });
+            //builder.Entity<Category>()
+            //    .HasData(new Category { Id = 1, Name = "Prywatne" },
+            // new Category { Id = 2, Name = "Grupowe" });
 
-            builder.Entity<Status>()
-                .HasData(new Category { Id = 1, Name = "Nieprzydzielone" },
-                         new Category { Id = 2, Name = "Przydzielone" },
-                         new Category { Id = 3, Name = "Konsultacja" },
-                         new Category { Id = 4, Name = "Gotowe" },
-                         new Category { Id = 5, Name = "Anulowane" });
+            //builder.Entity<Status>()
+            //    .HasData(new Category { Id = 1, Name = "Nieprzydzielone" },
+            //             new Category { Id = 2, Name = "Przydzielone" },
+            //             new Category { Id = 3, Name = "Konsultacja" },
+            //             new Category { Id = 4, Name = "Gotowe" },
+            //             new Category { Id = 5, Name = "Anulowane" });
         }
     }
 }

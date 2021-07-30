@@ -15,6 +15,7 @@ namespace TaskManager.Application
 
             services.AddTransient<IErrandServices, ErrandService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

@@ -15,6 +15,7 @@ namespace TaskManager.Infrastructure
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
+
             return services;
         }
     }

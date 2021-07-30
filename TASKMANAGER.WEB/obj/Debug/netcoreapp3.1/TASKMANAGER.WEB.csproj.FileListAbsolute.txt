@@ -435,3 +435,5 @@ C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\bin\Debug\netcorea
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.csproj.CoreCompileInputs.cache
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Employee\AddEmployee.cshtml.g.cs
+C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Index.cshtml.g.cs

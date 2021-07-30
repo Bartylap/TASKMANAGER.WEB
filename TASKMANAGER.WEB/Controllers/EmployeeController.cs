@@ -11,8 +11,8 @@ namespace TASKMANAGER.WEB.Controllers
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService _empServ;
-       
-        
+
+
         public EmployeeController(IEmployeeService empServ)
         {
             _empServ = empServ;
@@ -45,6 +45,25 @@ namespace TASKMANAGER.WEB.Controllers
             var id = _empServ.AddEmploye(model);
             return RedirectToAction("Index");
         }
+        public IActionResult DeleteEmployee(int id)
+        {
+            _empServ.DeleteEmployee(id);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult EditEmployee(int id)
+        {
+            var model = _empServ.GetEmployee(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult EditEmployee(EmployeeVm model)
+        {
+            _empServ.UpdateEmployee(model);
+            return RedirectToAction("Index");
+        }
+
+
 
     }
 }
