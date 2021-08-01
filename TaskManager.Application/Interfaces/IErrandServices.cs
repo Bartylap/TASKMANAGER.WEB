@@ -9,7 +9,7 @@ namespace TaskManager.Application.Interfaces
     public interface IErrandServices
     {
         // DODAWANIE ZADANIA 
-        int AddErand(AddErandVm erand);
+        int AddErrand(AddErandVm erand);
         //USUWANIE ZADANIA
         void DeleteErrand(int id);
         // WYŚWIETLANIE LISTY ZADAŃ
@@ -23,7 +23,7 @@ namespace TaskManager.Application.Interfaces
         //POBRANIE LISTY STATUSÓW
         IQueryable<StatusVm> GetErrandStatus();
         // DODAWANIE KATEGORII
-        int AddNewCategory(CategoryVm category);
+        void AddNewCategory(CategoryVm category);
         // POBRANIE LISTY ZADAŃ POFILTROWANYCH
         MyErrandListVm GetErandByCategory(int categoryId);
         // PRZYPISYWANIE ZADANIA DO UŻYTKOWNIAK 

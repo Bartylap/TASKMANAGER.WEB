@@ -7,6 +7,8 @@ namespace TaskManager.Domain.Models
 {
     public class User : IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public ICollection<UserErrand> UserErrand { get; set; }
     }
 }

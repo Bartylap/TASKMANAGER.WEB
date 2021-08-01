@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskManager.Infrastructure.Migrations
 {
-    public partial class as1 : Migration
+    public partial class _1a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,9 @@ namespace TaskManager.Infrastructure.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false)
+                    Discriminator = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -224,7 +226,7 @@ namespace TaskManager.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserErrand",
+                name: "UserErrands",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -232,15 +234,15 @@ namespace TaskManager.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserErrand", x => new { x.UserId, x.ErrandId });
+                    table.PrimaryKey("PK_UserErrands", x => new { x.UserId, x.ErrandId });
                     table.ForeignKey(
-                        name: "FK_UserErrand_Errands_ErrandId",
+                        name: "FK_UserErrands_Errands_ErrandId",
                         column: x => x.ErrandId,
                         principalTable: "Errands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserErrand_AspNetUsers_UserId",
+                        name: "FK_UserErrands_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -297,8 +299,8 @@ namespace TaskManager.Infrastructure.Migrations
                 column: "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserErrand_ErrandId",
-                table: "UserErrand",
+                name: "IX_UserErrands_ErrandId",
+                table: "UserErrands",
                 column: "ErrandId");
         }
 
@@ -323,7 +325,7 @@ namespace TaskManager.Infrastructure.Migrations
                 name: "Employees");
 
             migrationBuilder.DropTable(
-                name: "UserErrand");
+                name: "UserErrands");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

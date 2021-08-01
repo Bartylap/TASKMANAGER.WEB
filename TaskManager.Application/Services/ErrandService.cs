@@ -1,17 +1,32 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskManager.Application.Interfaces;
 using TaskManager.Application.ViewModels.Errand;
+using TaskManager.Domain.Interfaces;
+using TaskManager.Domain.Models;
 
 namespace TaskManager.Application.Services
 {
     public class ErrandService : IErrandServices
     {
-        public int AddErand(AddErandVm erand)
+        private readonly IMapper _mapper;
+        private readonly IErrandRepository _errRepo;
+        public ErrandService(IMapper mapper , IErrandRepository errRepo)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _errRepo = errRepo;
+        }
+
+
+        public int AddErrand(AddErandVm model)
+        {
+            var newerrand = _mapper.Map<Errand>(model);
+            var id = _errRepo.AddErrand(newerrand);
+            return id;
+
         }
 
         public void AddErrandToUser(ErrandListForAddToUserVm model)
@@ -19,14 +34,16 @@ namespace TaskManager.Application.Services
             throw new NotImplementedException();
         }
 
-        public int AddNewCategory(CategoryVm category)
+        public void AddNewCategory(CategoryVm category)
         {
-            throw new NotImplementedException();
+            var newCategory = _mapper.Map<Category>(category);
+             _errRepo.AddCategory(newCategory);
+            
         }
 
         public void DeleteErrand(int id)
         {
-            throw new NotImplementedException();
+            _errRepo.RemoveErrand(id);
         }
 
         public ErrandListVm GetAllErand(string searchString)

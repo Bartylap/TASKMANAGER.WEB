@@ -1,0 +1,40 @@
+﻿@model TaskManager.Application.ViewModels.User.UserListVm
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Searchstring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Users) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                <a class="btn btn-success" style="height:40px" ,"width: 100px;" href="@Url.Action("AddTaskToUser", "User", new { id = item.Id })">Dodaj Zadanie</a>
+                <a class="btn btn-info" style="height:40px" ,"width: 100px;" href="@Url.Action("MyTasks", "User", new { id = item.Id })">Zadania</a>
+                <a class="btn btn-warning" style="height:40px" ,"width: 100px;" href="@Url.Action("Details", "User", new { id = item.Id })">Szczegóły</a>
+                <a class="btn btn-danger" style="height:40px" ,"width: 100px;" href="@Url.Action("Delete", "User", new { id = item.Id })">Usuń użytkownika</a>
+                @*@Html.ActionLink("Dodaj Zadanie", "AddTaskToUser", "User", new { id = item.Id }) |*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

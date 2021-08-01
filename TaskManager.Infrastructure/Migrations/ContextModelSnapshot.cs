@@ -319,12 +319,18 @@ namespace TaskManager.Infrastructure.Migrations
 
                     b.HasIndex("ErrandId");
 
-                    b.ToTable("UserErrand");
+                    b.ToTable("UserErrands");
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("User");
                 });

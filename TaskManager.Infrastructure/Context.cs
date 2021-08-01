@@ -14,6 +14,7 @@ namespace TaskManager.Infrastructure
         public DbSet<Category> Categories { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<UserErrand> UserErrands { get; set; }
         public Context(DbContextOptions options) : base(options)
         {
         }

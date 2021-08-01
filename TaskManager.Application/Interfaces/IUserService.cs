@@ -10,8 +10,8 @@ namespace TaskManager.Application.Interfaces
         UserListVm GetAllUsers(string searchString);
         UserVm GetUser(string id);
         void DeleteUser(string id);
-        string AddUser(AddUserVm user);
         void UpdateUser(UserVm user);
+        MyErrandsListVm ViewTasks(string userId);
 
     }
 }

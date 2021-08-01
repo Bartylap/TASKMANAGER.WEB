@@ -1,31 +1,66 @@
-﻿using System;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TaskManager.Application.Interfaces;
 using TaskManager.Application.ViewModels.User;
+using TaskManager.Domain.Interfaces;
+using TaskManager.Domain.Models;
 
 namespace TaskManager.Application.Services
 {
     public class UserService : IUserService
     {
-        public string AddUser(AddUserVm user)
+
+        private readonly IUserRepository _userRepo;
+        private readonly IMapper _mapper;
+
+        public UserService(IMapper mapper, IUserRepository userRepo )
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _userRepo = userRepo;
         }
+
+
 
         public void DeleteUser(string id)
         {
-            throw new NotImplementedException();
+            _userRepo.RemoveUser(id);
         }
 
         public UserListVm GetAllUsers(string searchString)
         {
-            throw new NotImplementedException();
+            var users = _userRepo.GetAllUsers().Where(u => u.UserName.StartsWith(searchString))
+                .ProjectTo<UserVm>(_mapper.ConfigurationProvider).ToList();
+            var userList = new UserListVm()
+            {
+
+                Users = users,
+                Count = users.Count
+            };
+            return userList;
         }
 
         public UserVm GetUser(string id)
         {
-            throw new NotImplementedException();
+            var user = _userRepo.GetUser(id);
+            var userVm = _mapper.Map<UserVm>(user);
+            return userVm;
+        }
+
+        public MyErrandsListVm ViewTasks(string userId)
+        {
+            var errands = _userRepo.GetMyTask(userId)
+                .ProjectTo<ViewMyErrandsVm>(_mapper.ConfigurationProvider).ToList();
+
+            var taskList = new MyErrandsListVm()
+            {
+                Errands = errands,
+                Count = errands.Count
+            };
+            return taskList;
         }
 
         public void UpdateUser(UserVm user)

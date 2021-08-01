@@ -10,8 +10,8 @@ using TaskManager.Infrastructure;
 namespace TaskManager.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210730125448_as1")]
-    partial class as1
+    [Migration("20210801180206_1a")]
+    partial class _1a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -321,12 +321,18 @@ namespace TaskManager.Infrastructure.Migrations
 
                     b.HasIndex("ErrandId");
 
-                    b.ToTable("UserErrand");
+                    b.ToTable("UserErrands");
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("User");
                 });
