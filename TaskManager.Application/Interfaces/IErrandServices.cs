@@ -9,7 +9,7 @@ namespace TaskManager.Application.Interfaces
     public interface IErrandServices
     {
         // DODAWANIE ZADANIA 
-        int AddErrand(AddErandVm erand);
+        int AddErrand(AddErrandVm erand);
         //USUWANIE ZADANIA
         void DeleteErrand(int id);
         // WYŚWIETLANIE LISTY ZADAŃ

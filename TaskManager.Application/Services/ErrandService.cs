@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,17 +22,12 @@ namespace TaskManager.Application.Services
         }
 
 
-        public int AddErrand(AddErandVm model)
+        public int AddErrand(AddErrandVm model)
         {
             var newerrand = _mapper.Map<Errand>(model);
             var id = _errRepo.AddErrand(newerrand);
             return id;
 
-        }
-
-        public void AddErrandToUser(ErrandListForAddToUserVm model)
-        {
-            throw new NotImplementedException();
         }
 
         public void AddNewCategory(CategoryVm category)
@@ -48,30 +44,46 @@ namespace TaskManager.Application.Services
 
         public ErrandListVm GetAllErand(string searchString)
         {
-            throw new NotImplementedException();
+            var errands = _errRepo.GetAll().Where(e => e.Name.Contains(searchString))
+                .ProjectTo<ErrandVm>(_mapper.ConfigurationProvider).ToList();
+            var errandsList = new ErrandListVm()
+            {
+                Errands = errands,
+                Count= errands.Count
+            };
+            return errandsList;
+        }
+        public IQueryable<CategoryVm> GetErrandCategory()
+        {
+            var category = _errRepo.GetErrandsCategory().ProjectTo<CategoryVm>(_mapper.ConfigurationProvider);
+            return category;
         }
 
+        public IQueryable<StatusVm> GetErrandStatus()
+        {
+            var status = _errRepo.GetErrandsStatus().ProjectTo<StatusVm>(_mapper.ConfigurationProvider);
+            return status;
+        }
+
+        public ErrandVm GetErandToEdit(int id)
+        {
+            var errand = _errRepo.GetErrand(id);
+            var errandVm = _mapper.Map<ErrandVm>(errand);
+            return errandVm;
+        }
+
+        public void UpdateErrand(ErrandVm model)
+        {
+            var errand = _mapper.Map<Errand>(model);
+            _errRepo.UpdateErrand(errand);
+        }
         public MyErrandListVm GetErandByCategory(int categoryId)
         {
             throw new NotImplementedException();
         }
 
-        public ErrandVm GetErandToEdit(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public IQueryable<CategoryVm> GetErrandCategory()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<StatusVm> GetErrandStatus()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateErrand(ErrandVm errand)
+        public void AddErrandToUser(ErrandListForAddToUserVm model)
         {
             throw new NotImplementedException();
         }
