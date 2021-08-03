@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using TaskManager.Application.Mapping;
@@ -15,6 +16,10 @@ namespace TaskManager.Application.ViewModels.Errand
         public int StatusId { get; set; }
         public List<CategoryVm> Categories { get; set; }
         public List<StatusVm> Statuses { get; set; }
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<TaskManager.Domain.Models.Errand, ErrandVm>().ReverseMap();
+        }
 
     }
 }

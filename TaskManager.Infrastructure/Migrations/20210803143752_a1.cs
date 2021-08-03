@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskManager.Infrastructure.Migrations
 {
-    public partial class _1a : Migration
+    public partial class a1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -205,8 +205,8 @@ namespace TaskManager.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: true),
-                    StatusId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<int>(nullable: false),
+                    StatusId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -216,13 +216,13 @@ namespace TaskManager.Infrastructure.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Errands_Statuses_StatusId",
                         column: x => x.StatusId,
                         principalTable: "Statuses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -247,6 +247,27 @@ namespace TaskManager.Infrastructure.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Prywatne" },
+                    { 2, "Grupowe" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Nieprzydzielone" },
+                    { 2, "Przydzielone" },
+                    { 3, "Konsultacja" },
+                    { 4, "Gotowe" },
+                    { 5, "Anulowane" }
                 });
 
             migrationBuilder.CreateIndex(

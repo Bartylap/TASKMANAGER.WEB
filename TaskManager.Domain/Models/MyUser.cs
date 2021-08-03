@@ -5,10 +5,11 @@ using System.Text;
 
 namespace TaskManager.Domain.Models
 {
-    public class User : IdentityUser
+    public class MyUser : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+     
         public ICollection<UserErrand> UserErrand { get; set; }
     }
 }

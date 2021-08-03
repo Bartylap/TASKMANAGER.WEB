@@ -7,7 +7,7 @@ namespace TaskManager.Domain.Models
     public class UserErrand
     {
         public string UserId { get; set; }
-        public User User { get; set; }
+        public MyUser User { get; set; }
         public int ErrandId { get; set; }
         public Errand Errand { get; set; }
         

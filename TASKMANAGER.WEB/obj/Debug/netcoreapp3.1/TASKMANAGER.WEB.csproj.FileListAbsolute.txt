@@ -877,4 +877,6 @@ C:\Users\Piotr\Source\Repos\TASKMANAGER.WEBq\TASKMANAGER.WEB\obj\Debug\netcoreap
 C:\Users\Piotr\Source\Repos\TASKMANAGER.WEBq\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.genruntimeconfig.cache
 C:\Users\Piotr\Source\Repos\TASKMANAGER.WEBq\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditEmployee.cshtml.g.cs
+C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Errand\Index.cshtml.g.cs
+C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Errand\AddErrand.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs

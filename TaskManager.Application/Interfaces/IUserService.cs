@@ -7,7 +7,7 @@ namespace TaskManager.Application.Interfaces
 {
     public interface IUserService
     {
-        UserListVm GetAllUsers(string searchString);
+        UserListVm GetAllUsers();
         UserVm GetUser(string id);
         void DeleteUser(string id);
         void UpdateUser(UserVm user);

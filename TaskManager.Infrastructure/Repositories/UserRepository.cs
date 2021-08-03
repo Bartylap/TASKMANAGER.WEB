@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskManager.Domain.Interfaces;
+using TaskManager.Domain.Models;
 
 namespace TaskManager.Infrastructure.Repositories
 {
@@ -17,9 +18,10 @@ namespace TaskManager.Infrastructure.Repositories
 
 
 
-        public IQueryable<Domain.Models.User> GetAllUsers()
+        public IQueryable<MyUser> GetAllUsers()
         {
-            return _context.User;
+            return _context.MyUsers;
+          
         }
 
         public IQueryable<Domain.Models.Errand> GetMyTask(string userId)
@@ -33,14 +35,14 @@ namespace TaskManager.Infrastructure.Repositories
             return tasks;
         }
 
-        public Domain.Models.User GetUser(string userId)
+        public Domain.Models.MyUser GetUser(string userId)
         {
-            return _context.User.FirstOrDefault(u => u.Id == userId);
+            return _context.MyUsers.FirstOrDefault(u => u.Id == userId);
         }
 
         public void RemoveUser(string id)
         {
-            var user = _context.User.Find(id);
+            var user = _context.MyUsers.Find(id);
             _context.Remove(user);
         }
     }

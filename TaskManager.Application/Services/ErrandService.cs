@@ -25,6 +25,7 @@ namespace TaskManager.Application.Services
         public int AddErrand(AddErrandVm model)
         {
             var newerrand = _mapper.Map<Errand>(model);
+            newerrand.StatusId = 1;
             var id = _errRepo.AddErrand(newerrand);
             return id;
 

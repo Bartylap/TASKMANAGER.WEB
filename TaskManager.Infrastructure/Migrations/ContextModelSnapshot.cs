@@ -238,6 +238,18 @@ namespace TaskManager.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Prywatne"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Grupowe"
+                        });
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.Employee", b =>
@@ -271,7 +283,7 @@ namespace TaskManager.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -280,7 +292,7 @@ namespace TaskManager.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StatusId")
+                    b.Property<int>("StatusId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -305,6 +317,33 @@ namespace TaskManager.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Statuses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Nieprzydzielone"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Przydzielone"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Konsultacja"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Gotowe"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Anulowane"
+                        });
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.UserErrand", b =>
@@ -322,7 +361,7 @@ namespace TaskManager.Infrastructure.Migrations
                     b.ToTable("UserErrands");
                 });
 
-            modelBuilder.Entity("TaskManager.Domain.Models.User", b =>
+            modelBuilder.Entity("TaskManager.Domain.Models.MyUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -332,7 +371,7 @@ namespace TaskManager.Infrastructure.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasDiscriminator().HasValue("User");
+                    b.HasDiscriminator().HasValue("MyUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -390,11 +429,15 @@ namespace TaskManager.Infrastructure.Migrations
                 {
                     b.HasOne("TaskManager.Domain.Models.Category", "Category")
                         .WithMany("Errands")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TaskManager.Domain.Models.Status", "Status")
                         .WithMany("Errands")
-                        .HasForeignKey("StatusId");
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.UserErrand", b =>
@@ -405,7 +448,7 @@ namespace TaskManager.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TaskManager.Domain.Models.User", "User")
+                    b.HasOne("TaskManager.Domain.Models.MyUser", "User")
                         .WithMany("UserErrand")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

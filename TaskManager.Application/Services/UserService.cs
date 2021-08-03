@@ -30,11 +30,11 @@ namespace TaskManager.Application.Services
             _userRepo.RemoveUser(id);
         }
 
-        public UserListVm GetAllUsers(string searchString)
+        public UserListVm GetAllUsers()
         {
-            var users = _userRepo.GetAllUsers().Where(u => u.UserName.StartsWith(searchString))
-                .ProjectTo<UserVm>(_mapper.ConfigurationProvider).ToList();
-            var userList = new UserListVm()
+            var users = _userRepo.GetAllUsers().ProjectTo<UserVm>(_mapper.ConfigurationProvider).ToList();
+
+        var userList = new UserListVm()
             {
 
                 Users = users,

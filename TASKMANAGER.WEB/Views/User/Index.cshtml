@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Searchstring)
+               Nazwa
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Count)
+                Akcja
             </th>
             <th></th>
         </tr>
@@ -25,14 +25,15 @@
 @foreach (var item in Model.Users) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                <a class="btn btn-success" style="height:40px" ,"width: 100px;" href="@Url.Action("AddTaskToUser", "User", new { id = item.Id })">Dodaj Zadanie</a>
-                <a class="btn btn-info" style="height:40px" ,"width: 100px;" href="@Url.Action("MyTasks", "User", new { id = item.Id })">Zadania</a>
-                <a class="btn btn-warning" style="height:40px" ,"width: 100px;" href="@Url.Action("Details", "User", new { id = item.Id })">Szczegóły</a>
-                <a class="btn btn-danger" style="height:40px" ,"width: 100px;" href="@Url.Action("Delete", "User", new { id = item.Id })">Usuń użytkownika</a>
-                @*@Html.ActionLink("Dodaj Zadanie", "AddTaskToUser", "User", new { id = item.Id }) |*@
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

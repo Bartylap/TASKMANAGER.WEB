@@ -15,6 +15,7 @@ using TaskManager.Application;
 using TaskManager.Infrastructure;
 using TaskManager.Infrastructure.Repositories;
 using TaskManager.Domain.Interfaces;
+using TaskManager.Domain.Models;
 
 namespace TASKMANAGER.WEB
 {

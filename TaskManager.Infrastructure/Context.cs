@@ -13,7 +13,7 @@ namespace TaskManager.Infrastructure
         public DbSet<Errand> Errands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Status> Statuses { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<MyUser> MyUsers { get; set; }
         public DbSet<UserErrand> UserErrands { get; set; }
         public Context(DbContextOptions options) : base(options)
         {
@@ -26,7 +26,7 @@ namespace TaskManager.Infrastructure
                 .HasKey(u => new { u.UserId, u.ErrandId });
 
             builder.Entity<UserErrand>()
-                .HasOne<User>(u => u.User)
+                .HasOne<MyUser>(u => u.User)
                 .WithMany(t => t.UserErrand)
                 .HasForeignKey(u => u.UserId);
             builder.Entity<UserErrand>()
@@ -36,16 +36,16 @@ namespace TaskManager.Infrastructure
 
 
 
-            //builder.Entity<Category>()
-            //    .HasData(new Category { Id = 1, Name = "Prywatne" },
-            // new Category { Id = 2, Name = "Grupowe" });
+            builder.Entity<Category>()
+                .HasData(new Category { Id = 1, Name = "Prywatne" },
+             new Category { Id = 2, Name = "Grupowe" });
 
-            //builder.Entity<Status>()
-            //    .HasData(new Category { Id = 1, Name = "Nieprzydzielone" },
-            //             new Category { Id = 2, Name = "Przydzielone" },
-            //             new Category { Id = 3, Name = "Konsultacja" },
-            //             new Category { Id = 4, Name = "Gotowe" },
-            //             new Category { Id = 5, Name = "Anulowane" });
+            builder.Entity<Status>()
+                .HasData(new Status { Id = 1, Name = "Nieprzydzielone" },
+                         new Status { Id = 2, Name = "Przydzielone" },
+                         new Status { Id = 3, Name = "Konsultacja" },
+                         new Status { Id = 4, Name = "Gotowe" },
+                         new Status { Id = 5, Name = "Anulowane" });
         }
     }
 }

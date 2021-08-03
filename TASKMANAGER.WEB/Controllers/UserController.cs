@@ -17,9 +17,10 @@ namespace TASKMANAGER.WEB.Controllers
             _userService = userService;
             _errService = errandServices;
         }
+        [HttpGet]
         public IActionResult Index()
         {
-            var model = _userService.GetAllUsers("");
+            var model = _userService.GetAllUsers();
             return View(model);
         }
         public IActionResult Delete(string id)
