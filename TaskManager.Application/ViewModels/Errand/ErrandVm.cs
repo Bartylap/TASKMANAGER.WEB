@@ -12,6 +12,7 @@ namespace TaskManager.Application.ViewModels.Errand
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsChecked { get; set; }
+        public string MyUserId { get; set; }
         public int CategoryId { get; set; }
         public int StatusId { get; set; }
         public List<CategoryVm> Categories { get; set; }

@@ -94,7 +94,7 @@ namespace TaskManager.Application.Services
                 .ProjectTo<ErrandVm>(_mapper.ConfigurationProvider).ToList();
             var tasksList = new ErrandListForAddToUserVm
             {
-                MyUserId = id,
+                MyUserId = user.Id,
                 Errands = tasks
             };
             return tasksList;
@@ -103,18 +103,21 @@ namespace TaskManager.Application.Services
         public void AddErrandToUser(ErrandListForAddToUserVm model)
         {
             MyUserErrand result = new MyUserErrand();
+         
             foreach (var t in model.Errands)
             {
                 if (t.IsChecked == true)
                 {
                     var mue = new MyUserErrand()
                     {
-                        MyUserId = model.MyUserId,
+                        MyUserId = t.MyUserId, 
                         ErrandId = t.Id
                     };
                     result = mue;
+                    
                 }
             }
+           
             _errRepo.AddErrandToUser(result);
         }
 

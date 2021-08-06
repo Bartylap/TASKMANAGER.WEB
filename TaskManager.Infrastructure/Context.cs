@@ -26,8 +26,8 @@ namespace TaskManager.Infrastructure
                 .HasKey(u => new { u.MyUserId, u.ErrandId });
 
             builder.Entity<MyUserErrand>()
-                .HasOne<MyUser>(u => u.User)
-                .WithMany(t => t.UserErrand)
+                .HasOne<MyUser>(u => u.MyUser)
+                .WithMany(t => t.MyUserErrand)
                 .HasForeignKey(u => u.MyUserId);
             builder.Entity<MyUserErrand>()
                 .HasOne<Errand>(e => e.Errand)

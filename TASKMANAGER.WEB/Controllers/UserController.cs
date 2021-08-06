@@ -35,13 +35,15 @@ namespace TASKMANAGER.WEB.Controllers
             return View(tasks);
         }
 
+
+
         [HttpGet]
         public IActionResult AddErrandtoUser(string id)
         {
             var model = _errService.GetUserForAddErrand(id);
             return View(model);
         }
-       [HttpPost]
+        [HttpPost]
         public IActionResult AddErrandtoUser(ErrandListForAddToUserVm model)
         {
             _errService.AddErrandToUser(model);
