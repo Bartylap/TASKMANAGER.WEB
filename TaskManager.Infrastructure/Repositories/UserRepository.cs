@@ -20,16 +20,16 @@ namespace TaskManager.Infrastructure.Repositories
 
         public IQueryable<MyUser> GetAllUsers()
         {
-            return _context.MyUsers;
+            return _context.MyUsers ;
           
         }
 
         public IQueryable<Domain.Models.Errand> GetMyTask(string userId)
         {
             var tasks = (from t in _context.Errands
-                         join u in _context.UserErrands
+                         join u in _context.MyUserErrands
                          on t.Id equals u.ErrandId
-                         where u.UserId == userId
+                         where u.MyUserId == userId
                          select t);
 
             return tasks;
@@ -43,7 +43,8 @@ namespace TaskManager.Infrastructure.Repositories
         public void RemoveUser(string id)
         {
             var user = _context.MyUsers.Find(id);
-            _context.Remove(user);
+            _context.MyUsers.Remove(user);
+            _context.SaveChanges();
         }
     }
 }

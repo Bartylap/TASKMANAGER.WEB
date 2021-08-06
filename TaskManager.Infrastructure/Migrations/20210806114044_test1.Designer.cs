@@ -10,8 +10,8 @@ using TaskManager.Infrastructure;
 namespace TaskManager.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210803143752_a1")]
-    partial class a1
+    [Migration("20210806114044_test1")]
+    partial class test1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -306,6 +306,21 @@ namespace TaskManager.Infrastructure.Migrations
                     b.ToTable("Errands");
                 });
 
+            modelBuilder.Entity("TaskManager.Domain.Models.MyUserErrand", b =>
+                {
+                    b.Property<string>("MyUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ErrandId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MyUserId", "ErrandId");
+
+                    b.HasIndex("ErrandId");
+
+                    b.ToTable("MyUserErrands");
+                });
+
             modelBuilder.Entity("TaskManager.Domain.Models.Status", b =>
                 {
                     b.Property<int>("Id")
@@ -346,21 +361,6 @@ namespace TaskManager.Infrastructure.Migrations
                             Id = 5,
                             Name = "Anulowane"
                         });
-                });
-
-            modelBuilder.Entity("TaskManager.Domain.Models.UserErrand", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ErrandId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserId", "ErrandId");
-
-                    b.HasIndex("ErrandId");
-
-                    b.ToTable("UserErrands");
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.MyUser", b =>
@@ -442,7 +442,7 @@ namespace TaskManager.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TaskManager.Domain.Models.UserErrand", b =>
+            modelBuilder.Entity("TaskManager.Domain.Models.MyUserErrand", b =>
                 {
                     b.HasOne("TaskManager.Domain.Models.Errand", "Errand")
                         .WithMany("UserErrand")
@@ -452,7 +452,7 @@ namespace TaskManager.Infrastructure.Migrations
 
                     b.HasOne("TaskManager.Domain.Models.MyUser", "User")
                         .WithMany("UserErrand")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("MyUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

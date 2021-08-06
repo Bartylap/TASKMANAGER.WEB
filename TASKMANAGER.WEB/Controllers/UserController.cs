@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskManager.Application.Interfaces;
+using TaskManager.Application.ViewModels.Errand;
 
 namespace TASKMANAGER.WEB.Controllers
 {
@@ -20,7 +21,7 @@ namespace TASKMANAGER.WEB.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _userService.GetAllUsers();
+            var model = _userService.GetAllUser();
             return View(model);
         }
         public IActionResult Delete(string id)
@@ -34,17 +35,17 @@ namespace TASKMANAGER.WEB.Controllers
             return View(tasks);
         }
 
-        //[HttpGet]
-        //public IActionResult AddTaskToUser(string id)
-        //{
-        //    var model = _taskService.GetUserForAddTask(id);
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public IActionResult AddTaskToUser(TaskListForAddToUserVm model)
-        //{
-        //    _taskService.AddTaskTouser(model);
-        //    return RedirectToAction("Index");
-        //}
+        [HttpGet]
+        public IActionResult AddErrandtoUser(string id)
+        {
+            var model = _errService.GetUserForAddErrand(id);
+            return View(model);
+        }
+       [HttpPost]
+        public IActionResult AddErrandtoUser(ErrandListForAddToUserVm model)
+        {
+            _errService.AddErrandToUser(model);
+            return RedirectToAction("Index");
+        }
     }
 }

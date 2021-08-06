@@ -16,5 +16,6 @@ namespace TaskManager.Domain.Interfaces
         IQueryable<Category> GetErrandsCategory();
         IQueryable<Status> GetErrandsStatus();
         void UpdateErrand(Errand errand);
+        void AddErrandToUser(MyUserErrand result);
     }
 }

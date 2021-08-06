@@ -880,3 +880,4 @@ C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcorea
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Errand\Index.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Errand\AddErrand.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\StazHsi\source\repos\TASKMANAGER.WEB\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\User\AddErrandtoUser.cshtml.g.cs

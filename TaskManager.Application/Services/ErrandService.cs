@@ -15,10 +15,12 @@ namespace TaskManager.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IErrandRepository _errRepo;
-        public ErrandService(IMapper mapper , IErrandRepository errRepo)
+        private readonly IUserRepository _userRepo;
+        public ErrandService(IMapper mapper , IErrandRepository errRepo, IUserRepository userRepo)
         {
             _mapper = mapper;
             _errRepo = errRepo;
+            _userRepo = userRepo;
         }
 
 
@@ -84,9 +86,37 @@ namespace TaskManager.Application.Services
         }
 
 
+
+        public ErrandListForAddToUserVm GetUserForAddErrand(string id)
+        {
+            var user = _userRepo.GetUser(id);
+            var tasks = _errRepo.GetAll()
+                .ProjectTo<ErrandVm>(_mapper.ConfigurationProvider).ToList();
+            var tasksList = new ErrandListForAddToUserVm
+            {
+                MyUserId = id,
+                Errands = tasks
+            };
+            return tasksList;
+        }
+
         public void AddErrandToUser(ErrandListForAddToUserVm model)
         {
-            throw new NotImplementedException();
+            MyUserErrand result = new MyUserErrand();
+            foreach (var t in model.Errands)
+            {
+                if (t.IsChecked == true)
+                {
+                    var mue = new MyUserErrand()
+                    {
+                        MyUserId = model.MyUserId,
+                        ErrandId = t.Id
+                    };
+                    result = mue;
+                }
+            }
+            _errRepo.AddErrandToUser(result);
         }
+
     }
 }

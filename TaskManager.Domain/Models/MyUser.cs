@@ -10,6 +10,6 @@ namespace TaskManager.Domain.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
      
-        public ICollection<UserErrand> UserErrand { get; set; }
+        public ICollection<MyUserErrand> UserErrand { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace TaskManager.Domain.Interfaces
 {
     public interface IUserRepository
     {
-        public MyUser GetUser(string UserId);
+        MyUser GetUser(string UserId);
         IQueryable<MyUser> GetAllUsers();
         void RemoveUser(string id);
         IQueryable<Errand> GetMyTask(string userId);

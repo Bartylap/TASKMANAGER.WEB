@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskManager.Infrastructure.Migrations
 {
-    public partial class a1 : Migration
+    public partial class test1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -226,24 +226,24 @@ namespace TaskManager.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserErrands",
+                name: "MyUserErrands",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(nullable: false),
+                    MyUserId = table.Column<string>(nullable: false),
                     ErrandId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserErrands", x => new { x.UserId, x.ErrandId });
+                    table.PrimaryKey("PK_MyUserErrands", x => new { x.MyUserId, x.ErrandId });
                     table.ForeignKey(
-                        name: "FK_UserErrands_Errands_ErrandId",
+                        name: "FK_MyUserErrands_Errands_ErrandId",
                         column: x => x.ErrandId,
                         principalTable: "Errands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserErrands_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_MyUserErrands_AspNetUsers_MyUserId",
+                        column: x => x.MyUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -320,8 +320,8 @@ namespace TaskManager.Infrastructure.Migrations
                 column: "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserErrands_ErrandId",
-                table: "UserErrands",
+                name: "IX_MyUserErrands_ErrandId",
+                table: "MyUserErrands",
                 column: "ErrandId");
         }
 
@@ -346,7 +346,7 @@ namespace TaskManager.Infrastructure.Migrations
                 name: "Employees");
 
             migrationBuilder.DropTable(
-                name: "UserErrands");
+                name: "MyUserErrands");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

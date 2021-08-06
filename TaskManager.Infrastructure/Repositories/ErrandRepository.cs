@@ -30,6 +30,13 @@ namespace TaskManager.Infrastructure.Repositories
             return newerrand.Id;
         }
 
+        public void AddErrandToUser(MyUserErrand result)
+        {
+            _context.MyUserErrands.Add(result);
+            _context.Errands.FirstOrDefault(t => t.Id == result.ErrandId).StatusId = 2;
+            _context.SaveChanges();
+        }
+
         public IQueryable<Errand> GetAll()
         {
             return _context.Errands;

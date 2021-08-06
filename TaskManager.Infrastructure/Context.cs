@@ -14,7 +14,7 @@ namespace TaskManager.Infrastructure
         public DbSet<Category> Categories { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<MyUser> MyUsers { get; set; }
-        public DbSet<UserErrand> UserErrands { get; set; }
+        public DbSet<MyUserErrand> MyUserErrands { get; set; }
         public Context(DbContextOptions options) : base(options)
         {
         }
@@ -22,14 +22,14 @@ namespace TaskManager.Infrastructure
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<UserErrand>()
-                .HasKey(u => new { u.UserId, u.ErrandId });
+            builder.Entity<MyUserErrand>()
+                .HasKey(u => new { u.MyUserId, u.ErrandId });
 
-            builder.Entity<UserErrand>()
+            builder.Entity<MyUserErrand>()
                 .HasOne<MyUser>(u => u.User)
                 .WithMany(t => t.UserErrand)
-                .HasForeignKey(u => u.UserId);
-            builder.Entity<UserErrand>()
+                .HasForeignKey(u => u.MyUserId);
+            builder.Entity<MyUserErrand>()
                 .HasOne<Errand>(e => e.Errand)
                 .WithMany(t => t.UserErrand)
                 .HasForeignKey(t => t.ErrandId);
