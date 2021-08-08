@@ -12,5 +12,6 @@ namespace TaskManager.Domain.Interfaces
         IQueryable<MyUser> GetAllUsers();
         void RemoveUser(string id);
         IQueryable<Errand> GetMyTask(string userId);
+        void UpdateUser(MyUser user);
     }
 }

@@ -80,7 +80,7 @@ namespace TaskManager.Application.Services
             var errand = _mapper.Map<Errand>(model);
             _errRepo.UpdateErrand(errand);
         }
-        public MyErrandListVm GetErandByCategory(int categoryId)
+        public ErrandListVm GetErandByCategory(int categoryId)
         {
             throw new NotImplementedException();
         }
@@ -94,7 +94,7 @@ namespace TaskManager.Application.Services
                 .ProjectTo<ErrandVm>(_mapper.ConfigurationProvider).ToList();
             var tasksList = new ErrandListForAddToUserVm
             {
-                MyUserId = user.Id,
+                MyUserId = id,
                 Errands = tasks
             };
             return tasksList;
@@ -110,7 +110,7 @@ namespace TaskManager.Application.Services
                 {
                     var mue = new MyUserErrand()
                     {
-                        MyUserId = t.MyUserId, 
+                        MyUserId = model.MyUserId,
                         ErrandId = t.Id
                     };
                     result = mue;

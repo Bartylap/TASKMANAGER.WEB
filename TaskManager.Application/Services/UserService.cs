@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskManager.Application.Interfaces;
+using TaskManager.Application.ViewModels.Errand;
 using TaskManager.Application.ViewModels.User;
 using TaskManager.Domain.Interfaces;
 using TaskManager.Domain.Models;
@@ -50,12 +51,12 @@ namespace TaskManager.Application.Services
             return userVm;
         }
 
-        public MyErrandsListVm ViewTasks(string userId)
+        public ErrandListVm ViewTasks(string userId)
         {
             var errands = _userRepo.GetMyTask(userId)
-                .ProjectTo<ViewMyErrandsVm>(_mapper.ConfigurationProvider).ToList();
+                .ProjectTo<ErrandVm>(_mapper.ConfigurationProvider).ToList();
 
-            var taskList = new MyErrandsListVm()
+            var taskList = new ErrandListVm()
             {
                 Errands = errands,
                 Count = errands.Count
@@ -63,9 +64,10 @@ namespace TaskManager.Application.Services
             return taskList;
         }
 
-        public void UpdateUser(UserVm user)
+        public void UpdateUser(UserVm model)
         {
-            throw new NotImplementedException();
+            var user = _mapper.Map<MyUser>(model);
+            _userRepo.UpdateUser(user);
         }
     }
 }

@@ -10,11 +10,18 @@ namespace TaskManager.Infrastructure
     public class Context : IdentityDbContext
     {
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeAddress> EmployeeAddresses { get; set; }
+        public DbSet<EmployeeContact> EmployeeContacts { get; set; }
+        public DbSet<Flat> Flats { get; set; }
+        public DbSet<TireType> TireTypes { get; set; }
+        public DbSet<Tool> Tools { get; set; }
         public DbSet<Errand> Errands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<MyUser> MyUsers { get; set; }
         public DbSet<MyUserErrand> MyUserErrands { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Construction> Constructions { get; set; }
         public Context(DbContextOptions options) : base(options)
         {
         }

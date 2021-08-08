@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TaskManager.Application.Interfaces;
 using TaskManager.Application.ViewModels.Errand;
+using TaskManager.Application.ViewModels.User;
 
 namespace TASKMANAGER.WEB.Controllers
 {
@@ -29,12 +30,12 @@ namespace TASKMANAGER.WEB.Controllers
             _userService.DeleteUser(id);
             return RedirectToAction("Index");
         }
-        public IActionResult MyErrads(string id)
+
+        public IActionResult MyErrands(string id)
         {
             var tasks = _userService.ViewTasks(id);
             return View(tasks);
         }
-
 
 
         [HttpGet]
@@ -48,6 +49,19 @@ namespace TASKMANAGER.WEB.Controllers
         {
             _errService.AddErrandToUser(model);
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Details(string id)
+        {
+            var model = _userService.GetUser(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Details(UserVm model)
+        {
+            _userService.UpdateUser(model);
+            return RedirectToAction("Index");
+
         }
     }
 }

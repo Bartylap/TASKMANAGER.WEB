@@ -8,6 +8,6 @@ namespace TaskManager.Application.ViewModels.User
     {
         public List<ViewMyErrandsVm> Errands { get; set; }
         public int Count { get; set; }
-        public string UserId { get; set; }
+        public string MyUserId { get; set; }
     }
 }

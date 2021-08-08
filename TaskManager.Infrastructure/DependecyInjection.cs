@@ -14,9 +14,11 @@ namespace TaskManager.Infrastructure
             services.AddTransient<IErrandRepository, ErrandRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
-
+            services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<IConstructionRepository, ConstructionRepository>();
 
             return services;
         }
     }
 }
+

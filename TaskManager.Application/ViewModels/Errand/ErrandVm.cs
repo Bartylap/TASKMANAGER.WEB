@@ -20,6 +20,7 @@ namespace TaskManager.Application.ViewModels.Errand
         public void Mapping(Profile profile)
         {
             profile.CreateMap<TaskManager.Domain.Models.Errand, ErrandVm>().ReverseMap();
+                
         }
 
     }

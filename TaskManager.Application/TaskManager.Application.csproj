@@ -17,4 +17,8 @@
     <ProjectReference Include="..\TaskManager.Domain\TaskManager.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\Construction\" />
+  </ItemGroup>
+
 </Project>

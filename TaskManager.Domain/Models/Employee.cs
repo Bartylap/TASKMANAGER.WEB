@@ -11,5 +11,11 @@ namespace TaskManager.Domain.Models
         public string LastName { get; set; }
         public string Pesel { get; set; }
         public string Position { get; set; }
+        public int HourlyRate { get; set; }
+        public DateTime DateOfEmployment { get; set; }
+        public DateTime DateOfRelease { get; set; }
+
+        public virtual ICollection<EmployeeAddress> Addresses { get; set; }
+        public virtual ICollection<EmployeeContact> EmployeeContact { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using TaskManager.Domain.Models;
 
 namespace TaskManager.Infrastructure.Repositories
 {
-    public class UserRepository:IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly Context _context;
 
@@ -44,6 +44,12 @@ namespace TaskManager.Infrastructure.Repositories
         {
             var user = _context.MyUsers.Find(id);
             _context.MyUsers.Remove(user);
+            _context.SaveChanges();
+        }
+
+        public void UpdateUser(MyUser user)
+        {
+            _context.MyUsers.Update(user);
             _context.SaveChanges();
         }
     }

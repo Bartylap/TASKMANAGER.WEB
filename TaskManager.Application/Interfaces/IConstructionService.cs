@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TaskManager.Application.ViewModels.Errand
+namespace TaskManager.Application.Interfaces
 {
-    public class MyErrandListVm
+    public interface IConstructionService
     {
     }
 }

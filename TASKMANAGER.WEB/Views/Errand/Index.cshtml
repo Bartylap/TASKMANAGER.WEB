@@ -4,65 +4,71 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Lista Zadań</h1>
+<form asp-action="Index" asp-controller="Errand" method="post">
+    <div class="">
+        <input type="text" asp-for="SearchString" name="searchString" id="searchString" />
+        <input type="submit" value="Wyszukaj" class="btn btn-success" />
+    </div>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nazwa
+                </th>
+                <th>
+                    Opis
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Akcja
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Errands)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @if (item.StatusId == 1)
+                        {
+                            <p style="font-weight:700; color:black "> Nieprzydzielone </p>
+                        }
+                        else if (item.StatusId == 2)
+                        {
+                            <p style="font-weight:700; color:darkviolet "> Przydzielone </p>
+                        }
+                        else if (item.StatusId == 3)
+                        {
+                            <p style="font-weight:700; color:darkorange "> Konsultacja </p>
+                        }
+                        else if (item.StatusId == 4)
+                        {
+                            <p style="font-weight:700; color:green "> Gotowe  </p>
+                        }
+                        else if (item.StatusId == 5)
+                        {
+                            <p style="font-weight:700; color:red "> Anulowane </p>
+                        }
+                    </td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Nazwa
-            </th>
-            <th>
-                Opis
-            </th>
-            <th>
-                Status
-            </th>
-            <th>
-                Akcja
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Errands) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @if (item.StatusId == 1)
-                {
-                    <p style="font-weight:700; color:black "> Nieprzydzielone </p>
-                }
-                else if (item.StatusId == 2)
-                {
-                    <p style="font-weight:700; color:darkviolet "> Przydzielone </p>
-                }
-                else if (item.StatusId == 3)
-                {
-                    <p style="font-weight:700; color:darkorange "> Konsultacja </p>
-                }
-                else if (item.StatusId == 4)
-                {
-                    <p style="font-weight:700; color:green "> Gotowe  </p>
-                }
-                else if (item.StatusId == 5)
-                {
-                    <p style="font-weight:700; color:red "> Anulowane </p>
-                }
-            </td>
-
-            <td>
-                <center>
-                    <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("Edit", "Task", new { id = item.Id })">Edytuj</a>
-                    <a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("Delete", "Task", new { id = item.Id })">Usuń</a>
-                </center>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        <center>
+                            <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("Edit", "Errand", new { id = item.Id })">Edytuj</a>
+                            <a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("Delete", "Errand", new { id = item.Id })">Usuń</a>
+                        </center>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+ </form>
