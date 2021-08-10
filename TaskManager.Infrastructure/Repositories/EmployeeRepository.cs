@@ -38,6 +38,12 @@ namespace TaskManager.Infrastructure.Repositories
         {
             var employee = _context.Employees.Find(id);
             _context.Employees.Remove(employee);
+            var empadress = _context.EmployeeAddresses.FirstOrDefault(u => u.Employee.Id == id);
+
+            if (empadress != null)
+            {
+                _context.EmployeeAddresses.Remove(empadress);
+            }
             _context.SaveChanges();
         }
 
