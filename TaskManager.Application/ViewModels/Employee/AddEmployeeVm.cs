@@ -13,10 +13,16 @@ namespace TaskManager.Application.ViewModels.Employee
         public string LastName { get; set; }
         public string Pesel { get; set; }
         public string Position { get; set; }
+        public int HourlyRate { get; set; }
+        public DateTime DateOfEmployment { get; set; }
+        public DateTime DateOfRelease { get; set; }
+        public  List<AddEmployeeAdrdressVm> Address { get; set; }
         public void Mapping(Profile profile)
         {
             profile.CreateMap<TaskManager.Domain.Models.Employee, AddEmployeeVm>().ReverseMap();
-
         }
+                 
+
+
     }
 }
