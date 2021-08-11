@@ -16,11 +16,14 @@ namespace TaskManager.Application.ViewModels.Employee
         public int HourlyRate { get; set; }
         public DateTime DateOfEmployment { get; set; }
         public DateTime DateOfRelease { get; set; }
-        public  List<AddEmployeeAdrdressVm> Address { get; set; }
+        public  List<AddEmployeeAdrdressVm> EmployeeAddress { get; set; }
+        public List<AddEmployeeContactVm> EmployeeContact { get; set; }
         public void Mapping(Profile profile)
         {
             profile.CreateMap<TaskManager.Domain.Models.Employee, AddEmployeeVm>().ReverseMap()
-                .ForMember(d => d.Addresses, opt => opt.MapFrom(s => s.Address));
+                .ForMember(d => d.Addresses, opt => opt.MapFrom(s => s.EmployeeAddress))
+                .ForMember(d => d.EmployeeContact, opt => opt.MapFrom(s => s.EmployeeContact));
+
         }
                  
 

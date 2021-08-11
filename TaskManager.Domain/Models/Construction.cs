@@ -18,6 +18,7 @@ namespace TaskManager.Domain.Models
         public virtual ICollection<Car> Car { get; set; }
         public virtual ICollection<Flat> Flat { get; set; }
         public virtual ICollection<Tool> Tolls { get; set; }
+        public bool Bufor { get; set; }
 
     }
 }

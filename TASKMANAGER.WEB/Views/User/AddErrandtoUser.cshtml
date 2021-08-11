@@ -1,56 +1,68 @@
 ﻿@model TaskManager.Application.ViewModels.Errand.ErrandListForAddToUserVm
 
 @{
+    ViewBag.Title = "AddErrandToUser";
     ViewData["Title"] = "AddErrandtoUser";
 }
     <center><h1>Wybierz zadanie</h1></center>
 
-<form asp-action="AddErrandtoUser">
+    <form asp-action="AddErrandtoUser">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Nazwa
-                </th>
-                <th>
-                    Opis
-                </th>
-                <th>
-                    <center>Zaznacz</center>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Errands.Count; i++)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.Errands[i].Name, new { @class = "form-control", @readonly = "readonly" })
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.Errands[i].Description, new { @class = "form-control", @readonly = "readonly" })
-                    </td>
-                    <td>
-                        <center> <input class="form-check-input" asp-for="Errands[i].IsChecked" /></center>
-                    </td>
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-                    </td>
+                    <th>
+                        Nazwa
+                    </th>
+                    <th>
+                        Opis
+                    </th>
+                    <th>
+                        <center>Zaznacz</center>
+                    </th>
                 </tr>
-                @Html.HiddenFor(modelItem => Model.Errands[i].Id, new { @class = "form-control", @readonly = "readonly" })
-                @Html.HiddenFor(modelItem => Model.ErrandId)
-                @Html.HiddenFor(modelItem => Model.MyUserId)
-            }
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Errands.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.Errands[i].Name, new { @class = "form-control", @readonly = "readonly" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.Errands[i].Description, new { @class = "form-control", @readonly = "readonly" })
+                        </td>
+                        <td>
+                            <center> <input class="form-check-input" asp-for="Errands[i].IsChecked" /></center>
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                        </td>
+                    </tr>
+                    @Html.HiddenFor(modelItem => Model.Errands[i].Id, new { @class = "form-control", @readonly = "readonly" })
+                    @Html.HiddenFor(modelItem => Model.ErrandId)
+                    @Html.HiddenFor(modelItem => Model.MyUserId)
+                }
 
 
 
 
-        </tbody>
-    </table>
-    <div class="form-group">
-        <input type="submit" value="Zapisz" class="btn btn-primary" />
-    </div>
-</form>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <input type="submit" value="Zapisz" class="btn btn-primary" id="save" />
+        </div>
+      
+        
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#save").click(function (){
+                        swal("Error Message test")
+                    });
+                });
+            </script>
+                        
+    </form>
+

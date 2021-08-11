@@ -39,14 +39,39 @@
                 <span asp-validation-for="Position" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address[0].AdressLine1" class="control-label">Ulica</label>
-                <input asp-for="Address[0].AdressLine1" class="form-control" />
-                <span asp-validation-for="Address[0].AdressLine1" class="text-danger"></span>
+                <label asp-for="EmployeeAddress[0].AdressLine1" class="control-label">Ulica</label>
+                <input asp-for="EmployeeAddress[0].AdressLine1" class="form-control" />
+                <span asp-validation-for="EmployeeAddress[0].AdressLine1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address[0].BuildingNumber" class="control-label">Numer mieszknia</label>
-                <input asp-for="Address[0].BuildingNumber" class="form-control" />
-                <span asp-validation-for="Address[0].BuildingNumber" class="text-danger"></span>
+                <label asp-for="EmployeeAddress[0].BuildingNumber" class="control-label">Numer mieszknia</label>
+                <input asp-for="EmployeeAddress[0].BuildingNumber" class="form-control" />
+                <span asp-validation-for="EmployeeAddress[0].BuildingNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeAddress[0].City" class="control-label">Miasto</label>
+                <input asp-for="EmployeeAddress[0].City" class="form-control" />
+                <span asp-validation-for="EmployeeAddress[0].City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeAddress[0].Country" class="control-label">Kraj</label>
+                <input asp-for="EmployeeAddress[0].Country" class="form-control" />
+                <span asp-validation-for="EmployeeAddress[0].Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeAddress[0].ZipCode" class="control-label">Kod pocztowy</label>
+                <input asp-for="EmployeeAddress[0].ZipCode" class="form-control" />
+                <span asp-validation-for="EmployeeAddress[0].ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeContact[0].Email" class="control-label">Adres Email</label>
+                <input asp-for="EmployeeContact[0].Email" class="form-control" />
+                <span asp-validation-for="EmployeeContact[0].Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeContact[0].PhoneNumber" class="control-label">Numer telefonu</label>
+                <input asp-for="EmployeeContact[0].PhoneNumber" class="form-control" />
+                <span asp-validation-for="EmployeeContact[0].PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
