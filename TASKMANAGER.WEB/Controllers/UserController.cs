@@ -47,16 +47,19 @@ namespace TASKMANAGER.WEB.Controllers
         [HttpPost]
         public IActionResult AddErrandtoUser(ErrandListForAddToUserVm model)
         {
+            if (ModelState.IsValid)
+            { 
             try
             {
                 _errService.AddErrandToUser(model);
                 
             }
-            catch
+            catch(Exception ex)
             {
-                ViewBag.Title = "AddErrandToUser";
+                return View(ex.Message);
             }
-
+            }
+            ModelState.AddModelError("", "Error1");
             return RedirectToAction("Index");
         }
         [HttpGet]

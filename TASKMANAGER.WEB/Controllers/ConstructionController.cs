@@ -19,19 +19,30 @@ namespace TASKMANAGER.WEB.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            
-            return View();
+
+            var model = _cstr.GetAllConstruction("");
+            return View(model);
+ 
         }
         [HttpPost]
         public IActionResult Index(string searchString)
         {
-
-            return View();
+            if (searchString is null)
+            {
+                searchString = String.Empty;
+            }
+            var model = _cstr.GetAllConstruction(searchString);
+            return View(model);
         }
+
         [HttpGet]
         public IActionResult AddConstruction()
         {
-            return View(new AddConstructionVm());
+            var model = new AddConstructionVm();
+            model.Date = DateTime.Now;
+           
+            
+            return View(model);
         }
         [HttpPost]
         public IActionResult AddConstruction(AddConstructionVm model)

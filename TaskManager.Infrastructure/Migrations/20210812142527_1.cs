@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskManager.Infrastructure.Migrations
 {
-    public partial class q1 : Migration
+    public partial class _1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -74,7 +74,8 @@ namespace TaskManager.Infrastructure.Migrations
                     AddressLine1 = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: true),
-                    ZipCode = table.Column<string>(nullable: true)
+                    ZipCode = table.Column<string>(nullable: true),
+                    Bufor = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

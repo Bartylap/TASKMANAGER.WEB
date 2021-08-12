@@ -308,6 +308,9 @@ namespace TaskManager.Infrastructure.Migrations
                     b.Property<string>("AddressLine1")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Bufor")
+                        .HasColumnType("bit");
+
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 

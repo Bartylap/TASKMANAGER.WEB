@@ -1,0 +1,52 @@
+﻿@model TaskManager.Application.ViewModels.Construction.ConstructionListVm
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa
+            </th>
+            <th>
+                Adres
+            </th>
+            <th>
+                Liczba Pracowników
+            </th>
+            <th>
+                Data Wyjazdu
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Constructions) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressLine1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

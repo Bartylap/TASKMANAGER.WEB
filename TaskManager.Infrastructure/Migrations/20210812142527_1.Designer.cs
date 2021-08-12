@@ -10,8 +10,8 @@ using TaskManager.Infrastructure;
 namespace TaskManager.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210810133248_q1")]
-    partial class q1
+    [Migration("20210812142527_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -309,6 +309,9 @@ namespace TaskManager.Infrastructure.Migrations
 
                     b.Property<string>("AddressLine1")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Bufor")
+                        .HasColumnType("bit");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");

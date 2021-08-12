@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,15 @@ namespace TaskManager.Application.Services
 
         public ConstructionListVm GetAllConstruction(string searchString)
         {
-            throw new NotImplementedException();
+            var construstions = _conRepo.GetAllConstruction().Where(c => c.Name.Contains(searchString))
+                .ProjectTo<ConstructionVm>(_mapper.ConfigurationProvider).ToList();
+            var cstrList = new ConstructionListVm
+            {
+                Constructions = construstions,
+                Count = construstions.Count
+            };
+            return cstrList;
         }
+
     }
 }
