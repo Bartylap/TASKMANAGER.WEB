@@ -5,9 +5,8 @@
     ViewData["Title"] = "AddEmployee";
 }
 
-<h1>AddEmployee</h1>
+<h1>Dodaj Pracownika</h1>
 
-<h4>AddEmployeeVm</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -74,15 +73,13 @@
                 <span asp-validation-for="EmployeeContact[0].PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Gotowe" class="btn btn-success" />
+                <a class="btn btn-danger" style="height:38px" ,"width: 100px;" asp-action="Index" asp-controller="Employee">Anuluj </a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

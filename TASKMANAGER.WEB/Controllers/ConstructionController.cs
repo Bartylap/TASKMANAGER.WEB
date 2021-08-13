@@ -50,5 +50,17 @@ namespace TASKMANAGER.WEB.Controllers
             _cstr.AddConstruction(model);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var model = _cstr.GetConstruction(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Details(DetailsConstructionVm model)
+        {
+            _cstr.UpdateConstruction(model);
+            return RedirectToAction("Index");
+        }
     }
 }

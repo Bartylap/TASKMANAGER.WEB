@@ -4,37 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+    <center>
+        <h1>Lista Użytkowników</h1>
+    </center>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-               Nazwa
-            </th>
-            <th>
-                Akcje
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Users) 
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    <a class="btn btn-success" style="height:40px" ,"width: 100px;" href="@Url.Action("AddErrandtoUser", "User", new { id = item.Id })">Dodaj Zadanie</a>
-                    <a class="btn btn-info" style="height:40px" ,"width: 100px;" href="@Url.Action("MyErrands", "User", new { id = item.Id })">Zadania</a>
-                    <a class="btn btn-warning" style="height:40px" ,"width: 100px;" href="@Url.Action("Details", "User", new { id = item.Id })">Szczegóły</a>
-                    <a class="btn btn-danger" style="height:40px" ,"width: 100px;" href="@Url.Action("Delete", "User", new { id = item.Id })">Usuń użytkownika</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                             Nazwa
+</th>
+                        
+                        <th>
+                            <center> Akcje</center>
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                            <td>
+                                <a class="btn btn-success" style="height:40px" ,"width: 100px;" href="@Url.Action("AddErrandtoUser", "User", new { id = item.Id })">Dodaj Zadanie</a>
+                                <a class="btn btn-info" style="height:40px" ,"width: 100px;" href="@Url.Action("MyErrands", "User", new { id = item.Id })">Zadania</a>
+                                <a class="btn btn-warning" style="height:40px" ,"width: 100px;" href="@Url.Action("Details", "User", new { id = item.Id })">Szczegóły</a>
+                                <a class="btn btn-danger" style="height:40px" ,"width: 100px;" href="@Url.Action("Delete", "User", new { id = item.Id })">Usuń użytkownika</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>

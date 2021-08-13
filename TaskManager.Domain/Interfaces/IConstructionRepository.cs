@@ -10,5 +10,7 @@ namespace TaskManager.Domain.Interfaces
     {
         int AddConstruction(Construction cstr);
         IQueryable<Construction> GetAllConstruction();
+        Construction GetConstruction(int id);
+        void UpdateConsrtuction(Construction model);
     }
 }

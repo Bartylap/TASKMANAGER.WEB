@@ -662,7 +662,7 @@ namespace TaskManager.Infrastructure.Migrations
 
             modelBuilder.Entity("TaskManager.Domain.Models.Employee", b =>
                 {
-                    b.HasOne("TaskManager.Domain.Models.Construction", null)
+                    b.HasOne("TaskManager.Domain.Models.Construction", "Construction")
                         .WithMany("Employees")
                         .HasForeignKey("ConstructionId");
                 });
@@ -720,7 +720,7 @@ namespace TaskManager.Infrastructure.Migrations
 
             modelBuilder.Entity("TaskManager.Domain.Models.Tool", b =>
                 {
-                    b.HasOne("TaskManager.Domain.Models.Construction", null)
+                    b.HasOne("TaskManager.Domain.Models.Construction", "Construction")
                         .WithMany("Tolls")
                         .HasForeignKey("ConstructionId");
                 });

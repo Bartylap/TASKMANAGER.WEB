@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YwqI5utD6lPrPgtyskDLBwrwkPAbrVju1CcUR4agV2pVsgQm1JFcdllI9eumgE2oH/A+hI+Wus8jvsQVVNd98w==",
+  "dgSpecHash": "M2ib56s8xA6xFSpTdgWfD61It11F6Ye6iWJqzXp/9HngwfdMb1ubfuZzJjCWhse5pRj0njMAVkFMJZC1zhcpkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEB1\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\StazHsi\\Source\\Repos\\TASKMANAGER.WEB1\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\StazHsi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.15\\microsoft.aspnetcore.cryptography.internal.3.1.15.nupkg.sha512",
     "C:\\Users\\StazHsi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.15\\microsoft.aspnetcore.cryptography.keyderivation.3.1.15.nupkg.sha512",

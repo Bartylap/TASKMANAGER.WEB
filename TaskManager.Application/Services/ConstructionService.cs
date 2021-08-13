@@ -40,5 +40,17 @@ namespace TaskManager.Application.Services
             return cstrList;
         }
 
+        public DetailsConstructionVm GetConstruction(int id)
+        {
+            var cost =_conRepo.GetConstruction(id);
+            var model = _mapper.Map<DetailsConstructionVm>(cost);
+            return model;
+        }
+
+        public void UpdateConstruction(DetailsConstructionVm model)
+        {
+            var cstr = _mapper.Map<Construction>(model);
+            _conRepo.UpdateConsrtuction(cstr);
+        }
     }
 }

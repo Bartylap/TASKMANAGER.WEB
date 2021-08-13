@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj": {}
+    "C:\\Users\\StazHsi\\Source\\Repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj": {
+    "C:\\Users\\StazHsi\\Source\\Repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\StazHsi\\Source\\Repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj",
         "projectName": "TaskManager.Domain",
-        "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj",
+        "projectPath": "C:\\Users\\StazHsi\\Source\\Repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\TaskManager.Domain.csproj",
         "packagesPath": "C:\\Users\\StazHsi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\obj\\",
+        "outputPath": "C:\\Users\\StazHsi\\Source\\Repos\\TASKMANAGER.WEB1\\TaskManager.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\StazHsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
