@@ -44,10 +44,11 @@ namespace TaskManager.Application.Services
             };
             return empList;
         }
-        public EmployeeVm GetEmployee(int id)
+
+        public AddEmployeeVm GetEmployee(int id)
         {
             var emp = _empRepo.GetEmployee(id);
-            var empVm = _mapper.Map<EmployeeVm>(emp);
+            var empVm = _mapper.Map<AddEmployeeVm>(emp);
             return empVm;
         }
 

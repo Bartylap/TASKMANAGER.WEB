@@ -13,5 +13,6 @@ namespace TaskManager.Domain.Interfaces
         IQueryable<Employee> GetAllUser();
         Employee GetEmployee(int id);
         void Update(Employee employee);
+
     }
 }

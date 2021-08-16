@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,18 +32,27 @@ namespace TaskManager.Infrastructure.Repositories
 
         public Employee GetEmployee(int id)
         {
-            return _context.Employees.FirstOrDefault(u => u.Id == id);
+            return _context.Employees.AsNoTracking()
+                .Include(e => e.EmployeeAddress)
+                .Include(e => e.EmployeeContact)
+                .FirstOrDefault(u => u.Id == id);
         }
+
 
         public void RemoveEmployee(int id)
         {
             var employee = _context.Employees.Find(id);
             _context.Employees.Remove(employee);
             var empadress = _context.EmployeeAddresses.FirstOrDefault(u => u.Employee.Id == id);
+            var empcon= _context.EmployeeContacts.FirstOrDefault(u => u.Employee.Id == id);
 
             if (empadress != null)
             {
                 _context.EmployeeAddresses.Remove(empadress);
+            }
+            if (empcon != null)
+            {
+                _context.EmployeeContacts.Remove(empcon);
             }
             _context.SaveChanges();
         }

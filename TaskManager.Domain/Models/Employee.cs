@@ -16,7 +16,7 @@ namespace TaskManager.Domain.Models
         public DateTime DateOfRelease { get; set; }
 
         public virtual Construction Construction { get; set; }
-        public virtual ICollection<EmployeeAddress> Addresses { get; set; }
+        public virtual ICollection<EmployeeAddress> EmployeeAddress { get; set; }
         public virtual ICollection<EmployeeContact> EmployeeContact { get; set; }
     }
 }

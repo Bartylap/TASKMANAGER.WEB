@@ -23,7 +23,7 @@ namespace TaskManager.Application.ViewModels.Construction
         public bool Bufor { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<DetailsConstructionVm, TaskManager.Domain.Models.Construction>().ReverseMap()
+            profile.CreateMap<TaskManager.Domain.Models.Construction, DetailsConstructionVm>().ReverseMap()
                  .ForMember(a => a.Employees, opt => opt.MapFrom(b => b.Employees))
                  .ForMember(a => a.Car, opt => opt.MapFrom(b => b.Car))
                  .ForMember(a => a.Flat, opt => opt.MapFrom(b => b.Flat))

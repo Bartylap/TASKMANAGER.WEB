@@ -8,11 +8,12 @@ namespace TaskManager.Application.Interfaces
     public interface IEmployeeService
     {
         EmployeeListVm GetAllEmployee(string searchString);
-        EmployeeVm GetEmployee(int id);
+
         int AddEmploye(AddEmployeeVm model);
         void DeleteEmployee(int id);
         void UpdateEmployee(EmployeeVm model);
+        AddEmployeeVm GetEmployee(int id);
 
-        
+
     }
 }

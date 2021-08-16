@@ -21,7 +21,7 @@ namespace TaskManager.Application.ViewModels.Employee
         public void Mapping(Profile profile)
         {
             profile.CreateMap<TaskManager.Domain.Models.Employee, AddEmployeeVm>().ReverseMap()
-                .ForMember(d => d.Addresses, opt => opt.MapFrom(s => s.EmployeeAddress))
+                .ForMember(d => d.EmployeeAddress, opt => opt.MapFrom(s => s.EmployeeAddress))
                 .ForMember(d => d.EmployeeContact, opt => opt.MapFrom(s => s.EmployeeContact));
 
         }
