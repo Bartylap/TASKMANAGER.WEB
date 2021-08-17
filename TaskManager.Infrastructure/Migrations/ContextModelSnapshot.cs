@@ -334,15 +334,30 @@ namespace TaskManager.Infrastructure.Migrations
                     b.ToTable("Constructions");
                 });
 
+            modelBuilder.Entity("TaskManager.Domain.Models.ConstructionEmployee", b =>
+                {
+                    b.Property<int>("ConstructionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Week")
+                        .HasColumnType("int");
+
+                    b.HasKey("ConstructionId", "EmployeeId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("ConstructionEmployee");
+                });
+
             modelBuilder.Entity("TaskManager.Domain.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ConstructionId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfEmployment")
                         .HasColumnType("datetime2");
@@ -366,8 +381,6 @@ namespace TaskManager.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ConstructionId");
 
                     b.ToTable("Employees");
                 });
@@ -660,17 +673,25 @@ namespace TaskManager.Infrastructure.Migrations
                         .HasForeignKey("TireTypeId");
                 });
 
-            modelBuilder.Entity("TaskManager.Domain.Models.Employee", b =>
+            modelBuilder.Entity("TaskManager.Domain.Models.ConstructionEmployee", b =>
                 {
                     b.HasOne("TaskManager.Domain.Models.Construction", "Construction")
-                        .WithMany("Employees")
-                        .HasForeignKey("ConstructionId");
+                        .WithMany("ConstructionEmployees")
+                        .HasForeignKey("ConstructionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManager.Domain.Models.Employee", "Employee")
+                        .WithMany("ConstructionEmployees")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.EmployeeAddress", b =>
                 {
                     b.HasOne("TaskManager.Domain.Models.Employee", "Employee")
-                        .WithMany("Addresses")
+                        .WithMany("EmployeeAddress")
                         .HasForeignKey("EmployeeId");
                 });
 

@@ -48,8 +48,8 @@ namespace TaskManager.Application.Services
         public AddEmployeeVm GetEmployee(int id)
         {
             var emp = _empRepo.GetEmployee(id);
-            var empVm = _mapper.Map<AddEmployeeVm>(emp);
-            return empVm;
+            var model = _mapper.Map<AddEmployeeVm>(emp);
+            return model;
         }
 
         public void UpdateEmployee(EmployeeVm model)

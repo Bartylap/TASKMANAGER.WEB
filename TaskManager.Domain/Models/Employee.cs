@@ -14,8 +14,7 @@ namespace TaskManager.Domain.Models
         public int HourlyRate { get; set; }
         public DateTime DateOfEmployment { get; set; }
         public DateTime DateOfRelease { get; set; }
-
-        public virtual Construction Construction { get; set; }
+        public ICollection<ConstructionEmployee> ConstructionEmployees { get; set; }
         public virtual ICollection<EmployeeAddress> EmployeeAddress { get; set; }
         public virtual ICollection<EmployeeContact> EmployeeContact { get; set; }
     }

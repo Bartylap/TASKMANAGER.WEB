@@ -22,6 +22,7 @@ namespace TaskManager.Infrastructure
         public DbSet<MyUserErrand> MyUserErrands { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Construction> Constructions { get; set; }
+        public DbSet<ConstructionEmployee> ConstructionEmployee { get; set; }
         public Context(DbContextOptions options) : base(options)
         {
         }
@@ -40,6 +41,20 @@ namespace TaskManager.Infrastructure
                 .HasOne<Errand>(e => e.Errand)
                 .WithMany(t => t.UserErrand)
                 .HasForeignKey(t => t.ErrandId);
+
+            //------------------------------------------------//
+            builder.Entity<ConstructionEmployee>()
+                .HasKey(e => new { e.ConstructionId, e.EmployeeId });
+
+            builder.Entity<ConstructionEmployee>()
+                .HasOne<Construction>(c => c.Construction)
+                .WithMany(e => e.ConstructionEmployees)
+                .HasForeignKey(f => f.ConstructionId);
+            builder.Entity<ConstructionEmployee>()
+                .HasOne<Employee>(e => e.Employee)
+                .WithMany(c => c.ConstructionEmployees)
+                .HasForeignKey(f => f.EmployeeId);
+
 
 
 

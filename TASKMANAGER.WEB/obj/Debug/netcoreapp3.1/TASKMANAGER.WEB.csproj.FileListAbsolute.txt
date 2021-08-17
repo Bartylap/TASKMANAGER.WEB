@@ -1778,4 +1778,3 @@ C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TASKMANAGER.WEB\obj\Debug\netcore
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Construction\AddConstruction.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Construction\Index.cshtml.g.cs
 C:\Users\StazHsi\Source\Repos\TASKMANAGER.WEB1\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Construction\Details.cshtml.g.cs
-C:\Users\StazHsi\Source\Repos\TASKMANAGER.WEB1\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditEmployeeTest.cshtml.g.cs

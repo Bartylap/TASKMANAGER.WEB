@@ -32,7 +32,7 @@ namespace TaskManager.Infrastructure.Repositories
         public Construction GetConstruction(int cstrId)
         {
             var construction = _context.Constructions.AsNoTracking()
-                .Include(e => e.Employees)
+                .Include(e => e.ConstructionEmployees)
                 .Include(e => e.Tolls)
                 .Include(e => e.Car)
                 .Include(e => e.Flat)

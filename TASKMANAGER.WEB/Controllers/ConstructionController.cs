@@ -56,11 +56,11 @@ namespace TASKMANAGER.WEB.Controllers
             var model = _cstr.GetConstruction(id);
             return View(model);
         }
-        [HttpPost]
-        public IActionResult Details(DetailsConstructionVm model)
-        {
-            _cstr.UpdateConstruction(model);
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //public IActionResult Details(DetailsConstructionVm model)
+        //{
+        //    _cstr.UpdateConstruction(model);
+        //    return RedirectToAction("Index");
+        //}
     }
 }

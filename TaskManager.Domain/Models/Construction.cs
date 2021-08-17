@@ -14,7 +14,7 @@ namespace TaskManager.Domain.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string ZipCode { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
+        public ICollection<ConstructionEmployee> ConstructionEmployees { get; set; }
         public virtual ICollection<Car> Car { get; set; }
         public virtual ICollection<Flat> Flat { get; set; }
         public virtual ICollection<Tool> Tolls { get; set; }

@@ -6,7 +6,7 @@ using TaskManager.Application.Mapping;
 
 namespace TaskManager.Application.ViewModels.Construction
 {
-    public class FlatListAtTheConstructionVm : IMapFrom<TaskManager.Domain.Models.Construction>
+    public class FlatListAtTheConstructionVm : IMapFrom<TaskManager.Domain.Models.Flat>
     {
         public int Id { get; set; }
         public string AddressLine1 { get; set; }
@@ -20,7 +20,7 @@ namespace TaskManager.Application.ViewModels.Construction
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<FlatListAtTheConstructionVm,TaskManager.Domain.Models.Construction> ().ReverseMap();
+            profile.CreateMap<FlatListAtTheConstructionVm,TaskManager.Domain.Models.Flat> ().ReverseMap();
         }
 
     }

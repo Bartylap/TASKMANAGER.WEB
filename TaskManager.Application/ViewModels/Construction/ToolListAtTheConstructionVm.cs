@@ -7,7 +7,7 @@ using TaskManager.Domain.Models;
 
 namespace TaskManager.Application.ViewModels.Construction
 {
-    public class ToolListAtTheConstructionVm : IMapFrom<Tool>
+    public class ToolListAtTheConstructionVm : IMapFrom<TaskManager.Domain.Models.Tool>
     {
         public int Id { get; set; }
         public string Name { get; set; }
