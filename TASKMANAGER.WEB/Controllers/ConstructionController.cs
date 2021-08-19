@@ -108,7 +108,7 @@ namespace TASKMANAGER.WEB.Controllers
 
         {
             _carServ.AddCar(models);
-            return RedirectToAction("Index");
+            return RedirectToAction("Cars");
 
         }
 

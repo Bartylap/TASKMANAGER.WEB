@@ -34,3 +34,12 @@ C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TaskManager.Domain\obj\Debug\netc
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.csproj.CoreCompileInputs.cache
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.dll
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEB1\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.pdb
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\bin\Debug\netcoreapp3.1\TaskManager.Domain.deps.json
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\bin\Debug\netcoreapp3.1\TaskManager.Domain.dll
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\bin\Debug\netcoreapp3.1\TaskManager.Domain.pdb
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.csprojAssemblyReference.cache
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.AssemblyInfoInputs.cache
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.AssemblyInfo.cs
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.dll
+C:\Users\Piotr\Source\Repos\TASKMANAGER\TaskManager.Domain\obj\Debug\netcoreapp3.1\TaskManager.Domain.pdb

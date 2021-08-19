@@ -5,12 +5,12 @@
     ViewData["Title"] = "AddEmployee";
 }
 
-<h1>Dodaj Pracownika</h1>
+<h1> Dodaj Pracownika</h1>
 
 <hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-4">
-        <form asp-action="AddEmployee">
+        <form asp-action="AddEmployee" class="wraper">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">*@
             @*<label asp-for="Id" class="control-label"></label>*@
@@ -71,12 +71,12 @@
                 <span asp-validation-for="EmployeeAddress[0].ZipCode" class="text-danger"></span>
             </div>
             </div>
-            <div class="form-group">
+            <div class="form-group employeeContact_email" >
                 <label asp-for="EmployeeContact[0].Email" class="control-label">Adres Email</label>
                 <input asp-for="EmployeeContact[0].Email" class="form-control" />
                 <span asp-validation-for="EmployeeContact[0].Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group employeeContact_phone">
                 <label asp-for="EmployeeContact[0].PhoneNumber" class="control-label">Numer telefonu</label>
                 <input asp-for="EmployeeContact[0].PhoneNumber" class="form-control" />
                 <span asp-validation-for="EmployeeContact[0].PhoneNumber" class="text-danger"></span>

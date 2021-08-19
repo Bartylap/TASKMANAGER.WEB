@@ -93,13 +93,40 @@ th {
     float: left;
    
 }
+.wraper{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
 .Personal {
-    float: left;
-    width: 50%;
+    width: 47%;
 
 }
 .Address {
-    float: left;
-    width: 50%;
-
+    width: 47%;
+  
+}
+.employeeContact_phone, .employeeContact_email {
+    width: 100%;
+}
+tr td:first-child{
+    width:18%;
+}
+tr td:nth-child(2) {
+    width: 40%;
+}
+tr td:nth-child(3) {
+    width: 18%;
+}
+td, th {
+    text-align:center
+}
+h1 {
+    text-align:center
+}
+.user_table tbody tr td:nth-child(1) {
+    width: 30%;
+}
+.user_table tbody tr td:nth-child(2) {
+    width: 70%;
 }
