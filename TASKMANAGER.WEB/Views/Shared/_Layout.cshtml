@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TASKMANAGER.WEB</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/css/HSILogo.jpg" style="width:80px; height:35px; border-radius:4px"> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -68,7 +68,22 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" asp-controller="Construction" asp-action="Index">Lista Budów</a>
+
                                     <a class="dropdown-item" asp-controller="Construction" asp-action="AddConstruction">Dodaj Budowe</a>
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                    Pojazdy
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Construction" asp-action="Cars">Lista Pojazdów</a>
+                                    <a class="dropdown-item" asp-controller="Construction" asp-action="Addcars">Dodaj Pojazd</a>
                                 </div>
                             </div>
                         </li>

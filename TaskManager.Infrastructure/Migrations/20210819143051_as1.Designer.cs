@@ -10,8 +10,8 @@ using TaskManager.Infrastructure;
 namespace TaskManager.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210817123721_1")]
-    partial class _1
+    [Migration("20210819143051_as1")]
+    partial class as1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -360,6 +360,9 @@ namespace TaskManager.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateOfEmployment")
                         .HasColumnType("datetime2");

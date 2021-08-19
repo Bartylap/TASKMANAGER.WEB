@@ -79,5 +79,11 @@ namespace TASKMANAGER.WEB.Controllers
             _errServ.AddNewCategory(model);
             return RedirectToAction("Index");
         }
+  
+        public IActionResult Clone(int id)
+        {
+            _errServ.CopyErrand(id);
+            return RedirectToAction("Index");
+        }
     }
 }

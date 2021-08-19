@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TaskManager.Application.Interfaces;
+using TaskManager.Application.ViewModels.Car;
 using TaskManager.Application.ViewModels.Construction;
 
 namespace TASKMANAGER.WEB.Controllers
@@ -11,9 +12,11 @@ namespace TASKMANAGER.WEB.Controllers
     public class ConstructionController : Controller
     {
         private readonly IConstructionService _cstr;
+        private readonly ICarService _carServ;
 
-        public ConstructionController(IConstructionService cstr)
+        public ConstructionController(IConstructionService cstr, ICarService carServ)
         {
+            _carServ = carServ;
             _cstr = cstr;
         }
         [HttpGet]
@@ -62,5 +65,52 @@ namespace TASKMANAGER.WEB.Controllers
         //    _cstr.UpdateConstruction(model);
         //    return RedirectToAction("Index");
         //}
+        [HttpGet]
+        public IActionResult Clone(int id)
+        {
+            _cstr.Copy(id);
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+        //----------------------------------------------------------------CARS-------------------------------------------------------------------//
+        //----------------------------------------------------------------CARS-------------------------------------------------------------------//
+        [HttpGet]
+        public IActionResult Cars()
+        {
+
+            var model = _carServ.GetAllCars("");
+            return View(model);
+
+        }
+        [HttpPost]
+        public IActionResult Cars(string searchString)
+        {
+            if (searchString is null)
+            {
+                searchString = String.Empty;
+            }
+            var model = _carServ.GetAllCars(searchString);
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult Addcars()
+        {
+
+            return View(new AddCarVm());
+
+        }
+        [HttpPost]
+        public IActionResult Addcars(AddCarVm models)
+
+        {
+            _carServ.AddCar(models);
+            return RedirectToAction("Index");
+
+        }
+
     }
 }

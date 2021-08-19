@@ -9,9 +9,11 @@ namespace TaskManager.Application.Interfaces
 {
     public interface IConstructionService
     {
+        int Copy(int id);
         int AddConstruction(AddConstructionVm model);
         ConstructionListVm GetAllConstruction(string searchString);
         DetailsConstructionVm GetConstruction(int id);
         void UpdateConstruction(DetailsConstructionVm model);
+        AddConstructionVm GetToClone(int id);
     }
 }

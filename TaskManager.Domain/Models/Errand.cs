@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TaskManager.Domain.Models
 {
-    public class Errand
+    public class Errand : ICloneable
     {
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -13,6 +15,12 @@ namespace TaskManager.Domain.Models
         public virtual Category Category { get; set; }
         public int StatusId { get; set; }
         public virtual Status Status { get; set; }
+
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
         
 }

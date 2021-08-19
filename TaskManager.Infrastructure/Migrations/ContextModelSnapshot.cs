@@ -359,6 +359,9 @@ namespace TaskManager.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateOfEmployment")
                         .HasColumnType("datetime2");
 

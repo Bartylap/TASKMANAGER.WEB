@@ -4,10 +4,12 @@ using System.Text;
 
 namespace TaskManager.Domain.Models
 {
-    public class Status
+    public class Status 
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Errand> Errands { get; set; }
+
+
     }
 }

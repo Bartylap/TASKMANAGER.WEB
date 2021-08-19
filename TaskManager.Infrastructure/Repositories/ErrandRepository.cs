@@ -25,6 +25,10 @@ namespace TaskManager.Infrastructure.Repositories
 
         public int AddErrand(Errand newerrand)
         {
+
+            newerrand.Id = 0;
+            newerrand.StatusId = 1;
+
             _context.Errands.Add(newerrand);
             _context.SaveChanges();
             return newerrand.Id;

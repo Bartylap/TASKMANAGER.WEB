@@ -31,7 +31,7 @@ namespace TaskManager.Application.Interfaces
         ErrandListForAddToUserVm GetUserForAddErrand(string id);
         // PRZYPISYWANIE ZADANIA DO UŻYTKOWNIAK 
         void AddErrandToUser(ErrandListForAddToUserVm model);
-        
 
+        int CopyErrand(int id);
     }
 }

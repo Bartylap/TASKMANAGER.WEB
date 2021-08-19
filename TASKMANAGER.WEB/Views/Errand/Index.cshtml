@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista Zadań</h1>
+<center><h1>Lista Zadań</h1></center>
 <form asp-action="Index" asp-controller="Errand" method="post">
     <div class="">
         <input type="text" asp-for="SearchString" name="searchString" id="searchString" />
@@ -65,6 +65,7 @@
                         <center>
                             <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("Edit", "Errand", new { id = item.Id })">Edytuj</a>
                             <a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("Delete", "Errand", new { id = item.Id })">Usuń</a>
+
                         </center>
                     </td>
                 </tr>

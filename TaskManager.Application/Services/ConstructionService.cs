@@ -11,7 +11,7 @@ using TaskManager.Domain.Models;
 
 namespace TaskManager.Application.Services
 {
-    public class ConstructionService : IConstructionService
+    public class ConstructionService : IConstructionService 
     {
         private readonly IConstructionRepository _conRepo;
         private readonly IMapper _mapper;
@@ -20,7 +20,20 @@ namespace TaskManager.Application.Services
             _conRepo = conRepo;
             _mapper = mapper;
         }
+        public AddConstructionVm GetToClone(int id)
+        {
+            var cost = _conRepo.GetConstruction(id);
+            var model = _mapper.Map<AddConstructionVm>(cost);
+            return model;
+        }
+        public int Copy(int id)
+        {
+            var cost = _conRepo.GetConstruction(id);
+            var newModel = (Construction)cost.Clone();
+            _conRepo.AddConstruction(newModel);
+            return newModel.Id;
 
+        }
         public int AddConstruction(AddConstructionVm model)
         {
             var cstr = _mapper.Map<Construction>(model);
@@ -52,5 +65,7 @@ namespace TaskManager.Application.Services
             var cstr = _mapper.Map<Construction>(model);
             _conRepo.UpdateConsrtuction(cstr);
         }
+
+
     }
 }

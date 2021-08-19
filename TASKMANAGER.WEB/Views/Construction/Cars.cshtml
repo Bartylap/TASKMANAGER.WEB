@@ -1,0 +1,61 @@
+﻿@model TaskManager.Application.ViewModels.Car.CarsListVm
+
+@{
+    ViewData["Title"] = "Cars";
+}
+
+<h1>Cars</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form>
+    <div class="">
+        <input type="text" asp-for="SearchString" name="searchString" id="searchString" />
+        <input type="submit" value="Wyszukaj" class="btn btn-success" />
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Marka
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Nr Rejestracyjny
+                </th>
+                <th>
+                    Liczba miejsc
+                </th>
+                <th>
+                    Akcje
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cars)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VehicleRegistrationNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Seats)
+                    </td>
+                    <td>
+                        <a class="btn btn-success" style="height:40px" ,"width: 100px;" href="@Url.Action("", "Errand", new { id = item.Id })">Akcja</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

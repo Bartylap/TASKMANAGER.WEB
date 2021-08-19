@@ -121,5 +121,13 @@ namespace TaskManager.Application.Services
             _errRepo.AddErrandToUser(result);
         }
 
+        public int CopyErrand(int id)
+        {
+            var err = _errRepo.GetErrand(id);
+            var newModel = (Errand)err.Clone();
+            
+            _errRepo.AddErrand(newModel);
+            return newModel.Id;
+        }
     }
 }

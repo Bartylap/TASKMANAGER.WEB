@@ -8,9 +8,9 @@ namespace TaskManager.Application.Interfaces
     public interface ICarService
     {
         CarsListVm GetAllCars(string searchString);
-        CarVm GetEmployee(int id);
-        int AddEmploye(AddCarVm model);
-        void DeleteEmployee(int id);
-        void UpdateEmployee(CarVm model);
+        CarVm Getcar(int id);
+        int AddCar(AddCarVm model);
+        void DeleteCar(int id);
+        void UpdateCar(AddCarVm model);
     }
 }

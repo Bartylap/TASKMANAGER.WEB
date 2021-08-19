@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TaskManager.Application.Interfaces;
 using TaskManager.Application.ViewModels.Car;
 using TaskManager.Domain.Interfaces;
+using TaskManager.Domain.Models;
 
 namespace TaskManager.Application.Services
 {
@@ -20,29 +23,44 @@ namespace TaskManager.Application.Services
             _mapper = mapper;
         }
 
-        public int AddEmploye(AddCarVm model)
+        public int AddCar(AddCarVm model)
         {
-            throw new NotImplementedException();
+            var car = _mapper.Map<Car>(model);
+            var id = _carRepo.AddCar(car);
+            return id;
         }
 
-        public void DeleteEmployee(int id)
+        public void DeleteCar(int id)
         {
-            throw new NotImplementedException();
+            _carRepo.DeleteCar(id);
         }
 
         public CarsListVm GetAllCars(string searchString)
         {
-            throw new NotImplementedException();
+            var cars = _carRepo.GetAllCars().Where(c => c.Model.Contains(searchString) ||
+                                                        c.Brand.Contains(searchString) ||
+                                                        c.VehicleRegistrationNumber.Contains(searchString))
+                .ProjectTo<CarVm>(_mapper.ConfigurationProvider).ToList();
+            var carList = new CarsListVm()
+            {
+                Cars = cars,
+                Count = cars.Count
+            };
+            return carList;
         }
 
-        public CarVm GetEmployee(int id)
+        public CarVm Getcar(int id)
         {
-            throw new NotImplementedException();
+            var car = _carRepo.GetCar(id);
+            var model = _mapper.Map<CarVm>(car);
+            return model;
         }
 
-        public void UpdateEmployee(CarVm model)
+        public void UpdateCar(AddCarVm model)
         {
-            throw new NotImplementedException();
+            var car = _mapper.Map<Car>(model);
+            _carRepo.UpdateCar(car);
         }
     }
+    
 }

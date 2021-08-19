@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TaskManager.Domain.Models
 {
-    public class Construction
+    public class Construction : ICloneable
     {
         public int Id { get; set; }
         public int Week { get; set; }
@@ -20,5 +20,9 @@ namespace TaskManager.Domain.Models
         public virtual ICollection<Tool> Tolls { get; set; }
         public bool Bufor { get; set; }
 
+        public object Clone()
+        {
+           return  base.MemberwiseClone();
+        }
     }
 }

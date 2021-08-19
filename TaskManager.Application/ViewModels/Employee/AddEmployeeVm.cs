@@ -14,6 +14,7 @@ namespace TaskManager.Application.ViewModels.Employee
         public string Pesel { get; set; }
         public string Position { get; set; }
         public int HourlyRate { get; set; }
+        public DateTime BirthDate { get; set; }
         public DateTime DateOfEmployment { get; set; }
         public DateTime DateOfRelease { get; set; }
         public  List<AddEmployeeAdrdressVm> EmployeeAddress { get; set; }

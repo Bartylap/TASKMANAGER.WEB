@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskManager.Infrastructure.Migrations
 {
-    public partial class _1 : Migration
+    public partial class as1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -93,6 +93,7 @@ namespace TaskManager.Infrastructure.Migrations
                     Pesel = table.Column<string>(nullable: true),
                     Position = table.Column<string>(nullable: true),
                     HourlyRate = table.Column<int>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: false),
                     DateOfEmployment = table.Column<DateTime>(nullable: false),
                     DateOfRelease = table.Column<DateTime>(nullable: false)
                 },
