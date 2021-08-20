@@ -9197,25 +9197,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Piotr\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\StazHsi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TASKMANAGER.WEB\\TASKMANAGER.WEB.csproj",
+      "projectUniqueName": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TASKMANAGER.WEB\\TASKMANAGER.WEB.csproj",
       "projectName": "TASKMANAGER.WEB",
-      "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TASKMANAGER.WEB\\TASKMANAGER.WEB.csproj",
-      "packagesPath": "C:\\Users\\Piotr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TASKMANAGER.WEB\\obj\\",
+      "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TASKMANAGER.WEB\\TASKMANAGER.WEB.csproj",
+      "packagesPath": "C:\\Users\\StazHsi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TASKMANAGER.WEB\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Piotr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\StazHsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -9226,16 +9221,15 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Application\\TaskManager.Application.csproj": {
-              "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Application\\TaskManager.Application.csproj"
+            "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Application\\TaskManager.Application.csproj": {
+              "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Application\\TaskManager.Application.csproj"
             },
-            "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj": {
-              "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj"
+            "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj": {
+              "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj"
             },
-            "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj"
+            "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj"
             }
           }
         }
@@ -9248,7 +9242,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
@@ -9291,12 +9284,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.13, 3.1.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9305,7 +9292,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

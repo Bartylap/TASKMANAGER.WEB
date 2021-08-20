@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj": {}
+    "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj": {
+    "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj",
         "projectName": "TaskManager.Domain",
-        "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj",
-        "packagesPath": "C:\\Users\\Piotr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\obj\\",
+        "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj",
+        "packagesPath": "C:\\Users\\StazHsi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Piotr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\StazHsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,7 +26,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,7 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -68,26 +62,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj": {
+    "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
         "projectName": "TaskManager.Infrastructure",
-        "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Piotr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\TaskManager.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\StazHsi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Piotr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\StazHsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -98,10 +88,9 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj": {
-                "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\TASKMANAGER\\TaskManager.Domain\\TaskManager.Domain.csproj"
+              "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj": {
+                "projectPath": "C:\\Users\\StazHsi\\source\\repos\\TASKMANAGER.WEBpt\\TaskManager.Domain\\TaskManager.Domain.csproj"
               }
             }
           }
@@ -114,7 +103,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -150,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

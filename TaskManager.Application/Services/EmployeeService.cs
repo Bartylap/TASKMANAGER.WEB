@@ -8,6 +8,10 @@ using TaskManager.Domain.Interfaces;
 using TaskManager.Domain.Models;
 using System.Linq;
 using AutoMapper.QueryableExtensions;
+using System.Xml.Serialization;
+using System.IO;
+using Microsoft.Win32;
+using System.Windows;
 
 namespace TaskManager.Application.Services
 {
@@ -56,6 +60,28 @@ namespace TaskManager.Application.Services
         {
             var user = _mapper.Map<Employee>(model);
             _empRepo.Update(user);
+        }
+
+
+
+        public void ExportEmployee()
+        {
+            
+            var list = _empRepo.GetAllUser().ToList();
+            XmlRootAttribute root = new XmlRootAttribute();
+            root.ElementName = "Employee";
+            root.IsNullable = true;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Employee>), root);
+
+
+
+
+
+
+
+
+            StreamWriter sw = new StreamWriter(@"C:/XML/employee.xml") ;
+            xmlSerializer.Serialize(sw, list);
         }
     }
 }

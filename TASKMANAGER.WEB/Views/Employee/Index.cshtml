@@ -5,43 +5,45 @@
 }
 
 <center><h1>Lista Pracowników</h1></center>
-    
 
-    <table class="user_table">
-        <thead>
+
+<table class="user_table">
+    <thead>
+        <tr>
+            <th>
+                Imię
+            </th>
+            <th>
+                Nazwisko
+            </th>
+            <th>
+                Stanowisko
+            </th>
+            <th>
+                Akcje
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employees)
+        {
             <tr>
-                <th>
-                    Imię
-                </th>
-                <th>
-                    Nazwisko
-                </th>
-                <th>
-                    Stanowisko
-                </th>
-                <th>
-                    Akcje
-                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("EditEmployee", "Employee", new { id = item.Id })">Edytuj</a>
+                    <a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("DeleteEmployee", "Employee", new { id = item.Id })">Usuń</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Employees)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Position)
-                    </td>
-                    <td>
-                        <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("EditEmployee", "Employee", new { id = item.Id })">Edytuj</a>
-                        <a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("DeleteEmployee", "Employee", new { id = item.Id })">Usuń</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
+<a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("Export", "Employee" )">Export</a>
+<input type="file" class="form-control"href="@Url.Action("Export", "Employee" )" />

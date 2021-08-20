@@ -62,7 +62,12 @@ namespace TASKMANAGER.WEB.Controllers
             _empServ.UpdateEmployee(model);
             return RedirectToAction("Index");
         }
-
+        public IActionResult Export()
+        {
+   
+            _empServ.ExportEmployee();
+            return RedirectToAction("Index");
+        }
 
 
 
