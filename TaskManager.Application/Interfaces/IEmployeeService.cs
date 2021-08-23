@@ -11,8 +11,9 @@ namespace TaskManager.Application.Interfaces
 
         int AddEmploye(AddEmployeeVm model);
         void DeleteEmployee(int id);
-        void UpdateEmployee(EmployeeVm model);
+        void UpdateEmployee(AddEmployeeVm model);
         AddEmployeeVm GetEmployee(int id);
         void ExportEmployee();
+        void ImportEmployee();
     }
 }

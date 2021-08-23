@@ -2662,11 +2662,7 @@ C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcor
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.TagHelpers.input.cache
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.TagHelpers.output.cache
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\TASKMANAGER.WEB.RazorCoreGenerate.cache
-C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
-C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
-C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
-C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPassword.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
 C:\Users\StazHsi\source\repos\TASKMANAGER.WEBpt\TASKMANAGER.WEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs

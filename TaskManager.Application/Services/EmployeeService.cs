@@ -56,32 +56,33 @@ namespace TaskManager.Application.Services
             return model;
         }
 
-        public void UpdateEmployee(EmployeeVm model)
+        public void UpdateEmployee(AddEmployeeVm model)
         {
-            var user = _mapper.Map<Employee>(model);
-            _empRepo.Update(user);
+            var employee = _mapper.Map<Employee>(model); 
+            _empRepo.Update(employee);
         }
 
 
 
         public void ExportEmployee()
         {
-            
             var list = _empRepo.GetAllUser().ToList();
             XmlRootAttribute root = new XmlRootAttribute();
             root.ElementName = "Employee";
             root.IsNullable = true;
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Employee>), root);
-
-
-
-
-
-
-
-
-            StreamWriter sw = new StreamWriter(@"C:/XML/employee.xml") ;
+            StreamWriter sw = new StreamWriter(@"C:\XML\employee.xml") ;
             xmlSerializer.Serialize(sw, list);
+        }
+        public void ImportEmployee()
+        {
+            XmlRootAttribute root = new XmlRootAttribute();
+            root.ElementName = "Employee";
+            root.IsNullable = true;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Employee>), root);
+            string xml = File.ReadAllText(@"C:\XML\employee.xml");
+            StringReader stringReader = new StringReader(xml);
+            var xmlEmployee = (List<Employee>)xmlSerializer.Deserialize(stringReader);
         }
     }
 }

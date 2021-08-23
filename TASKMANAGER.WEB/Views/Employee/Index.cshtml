@@ -7,7 +7,7 @@
 <center><h1>Lista Pracowników</h1></center>
 
 
-<table class="user_table">
+<table class="table employee_table">
     <thead>
         <tr>
             <th>
@@ -45,5 +45,6 @@
         }
     </tbody>
 </table>
-<a class="btn btn-danger" style="height:40px , " width:100px" href="@Url.Action("Export", "Employee" )">Export</a>
-<input type="file" class="form-control"href="@Url.Action("Export", "Employee" )" />
+<a class="btn btn-info" style="height:40px , " width:100px" href="@Url.Action("Export", "Employee" )">Export</a>
+<a class="btn btn-info" style="height:40px , " width:100px" href="@Url.Action("Import", "Employee" )">Import</a>
+

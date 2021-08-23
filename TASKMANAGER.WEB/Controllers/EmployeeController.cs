@@ -57,7 +57,7 @@ namespace TASKMANAGER.WEB.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult EditEmployee(EmployeeVm model)
+        public IActionResult EditEmployee(AddEmployeeVm model)
         {
             _empServ.UpdateEmployee(model);
             return RedirectToAction("Index");
@@ -66,6 +66,11 @@ namespace TASKMANAGER.WEB.Controllers
         {
    
             _empServ.ExportEmployee();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Import()
+        {
+            _empServ.ImportEmployee();
             return RedirectToAction("Index");
         }
 

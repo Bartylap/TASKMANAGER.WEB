@@ -32,10 +32,11 @@ namespace TaskManager.Infrastructure.Repositories
 
         public Employee GetEmployee(int id)
         {
-            return _context.Employees.AsNoTracking()
+           var emp =  _context.Employees.AsNoTracking()
                 .Include(e => e.EmployeeAddress)
                 .Include(e => e.EmployeeContact)
                 .FirstOrDefault(u => u.Id == id);
+            return emp;
         }
 
 
@@ -59,6 +60,7 @@ namespace TaskManager.Infrastructure.Repositories
 
         public void Update(Employee employee)
         {
+
             _context.Employees.Update(employee);
             _context.SaveChanges();
         }
