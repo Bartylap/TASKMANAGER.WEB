@@ -26,13 +26,16 @@ namespace TaskManager.Infrastructure.Repositories
 
         public IQueryable<Construction> GetAllConstruction()
         {
-            return _context.Constructions;
+            return _context.Constructions.AsNoTracking();
+
+
         }
 
         public Construction GetConstruction(int cstrId)
         {
+
             var construction = _context.Constructions.AsNoTracking()
-                .Include(e => e.ConstructionEmployees)
+                .Include(e => e.ConstructionEmployees).ThenInclude(e => e.Employee)
                 .Include(e => e.Tolls)
                 .Include(e => e.Car)
                 .Include(e => e.Flat)

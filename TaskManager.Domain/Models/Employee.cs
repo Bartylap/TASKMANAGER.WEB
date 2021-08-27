@@ -46,7 +46,7 @@ namespace TaskManager.Domain.Models
         [XmlIgnore]
         public DateTime DateOfRelease { get; set; }
         [XmlIgnore]
-        public ICollection<ConstructionEmployee> ConstructionEmployees { get; set; }
+        public virtual ICollection<ConstructionEmployee> ConstructionEmployees { get; set; }
         [XmlIgnore]
         public virtual ICollection<EmployeeAddress> EmployeeAddress { get; set; }
         [XmlIgnore]

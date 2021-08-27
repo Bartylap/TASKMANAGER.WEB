@@ -17,33 +17,35 @@
                 Adres
             </th>
             <th>
-                Liczba Pracowników
+                Data Wyjazdu
             </th>
             <th>
-                Data Wyjazdu
+                Akcja
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Constructions) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddressLine1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.Count)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("Details", "Construction", new { id = item.Id })">Edytuj</a>
-                <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("Clone", "Construction", new { id = item.Id })">Klonuj</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Constructions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressLine1)
+                </td>>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.Date))
+                </td>
+                <td>
+                    <a class="btn btn-info" style="height:40px , " width:100px" href="@Url.Action("Details", "Construction", new { id = item.Id })">Info</a>
+                    <a class="btn btn-warning" style="height:40px , " width:100px" href="@Url.Action("Clone", "Construction", new { id = item.Id })">Klonuj</a>
+                </td>
+            </tr>
+        }
+
+
+
+            
     </tbody>
 </table>
