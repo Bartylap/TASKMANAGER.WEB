@@ -61,7 +61,8 @@
                                 Nazwisko
                             </th>
                             <th>
-                                <img src="~/css/list-add.png" >
+                                <a class="const_add_emp" href="@Url.Action("AddEmployeeToConstruction", "Construction",new { id = Model.Id }) "> <img src="~/css/list-add.png"></a>
+                                @*<a class="const_add_emp" asp-action="AddEmployeeToConstruction" asp-controller="Construction"> <img src="~/css/list-add.png"></a>*@
                             </th>
                         </tr>
                     </thead>

@@ -89,7 +89,7 @@ namespace TaskManager.Application.Services
 
         public ErrandListForAddToUserVm GetUserForAddErrand(string id)
         {
-            var user = _userRepo.GetUser(id);
+            
             var tasks = _errRepo.GetAll()
                 .ProjectTo<ErrandVm>(_mapper.ConfigurationProvider).ToList();
             var tasksList = new ErrandListForAddToUserVm
@@ -113,12 +113,13 @@ namespace TaskManager.Application.Services
                         MyUserId = model.MyUserId,
                         ErrandId = t.Id
                     };
-                    result = mue;
                     
+                    _errRepo.AddErrandToUser(mue);
+
                 }
             }
            
-            _errRepo.AddErrandToUser(result);
+ 
         }
 
         public int CopyErrand(int id)

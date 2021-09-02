@@ -19,9 +19,16 @@ namespace TaskManager.Infrastructure.Repositories
 
         public int AddConstruction(Construction cstr)
         {
+            cstr.Id = 0;
             _context.Constructions.Add(cstr);
             _context.SaveChanges();
             return cstr.Id;
+        }
+
+        public void AddEmployeeToConstruction(ConstructionEmployee result)
+        {
+            _context.ConstructionEmployee.Add(result);
+            _context.SaveChanges();
         }
 
         public IQueryable<Construction> GetAllConstruction()

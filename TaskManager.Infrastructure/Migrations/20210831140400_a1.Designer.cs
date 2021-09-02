@@ -10,8 +10,8 @@ using TaskManager.Infrastructure;
 namespace TaskManager.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210827113130_as1")]
-    partial class as1
+    [Migration("20210831140400_a1")]
+    partial class a1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -594,6 +594,9 @@ namespace TaskManager.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Qantity")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

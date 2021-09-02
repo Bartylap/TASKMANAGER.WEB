@@ -5,8 +5,9 @@ using System.Xml.Serialization;
 
 namespace TaskManager.Domain.Models
 {
-    public class Employee 
+    public class Employee : ICloneable
     {
+
         public Employee()
         {
         }
@@ -51,5 +52,10 @@ namespace TaskManager.Domain.Models
         public virtual ICollection<EmployeeAddress> EmployeeAddress { get; set; }
         [XmlIgnore]
         public virtual ICollection<EmployeeContact> EmployeeContact { get; set; }
+
+        public object Clone()
+        {
+            return base.MemberwiseClone();
+        }
     }
 }

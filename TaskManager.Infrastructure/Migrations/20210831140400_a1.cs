@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaskManager.Infrastructure.Migrations
 {
-    public partial class as1 : Migration
+    public partial class a1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -267,6 +267,7 @@ namespace TaskManager.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
+                    Qantity = table.Column<string>(nullable: true),
                     ConstructionId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

@@ -1,0 +1,57 @@
+﻿@model TaskManager.Application.ViewModels.Construction.AddEmployeeToConstructionList
+
+@{
+    ViewData["Title"] = "AddEmployeeToConstruction";
+}
+
+<h1>AddEmployeeToConstruction</h1>
+
+<form asp-action="AddEmployeeToConstruction">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Imię
+                </th>
+                <th>
+                    Nazwisko
+                </th>
+                <th>
+                    Pozycja
+                </th>
+                <th>
+                    <center>Zaznacz</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Employee.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Employee[i].FirstName, new { @class = "form-control", @readonly = "readonly" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Employee[i].LastName, new { @class = "form-control", @readonly = "readonly" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Employee[i].Position, new { @class = "form-control", @readonly = "readonly" })
+                    </td>
+                    <td>
+                        <center> <input class="form-check-input" asp-for="Employee[i].Check" /></center>
+                    </td>
+
+                </tr>
+
+                @Html.HiddenFor(modelItem => Model.ConstructionId)
+                @Html.HiddenFor(modelItem => Model.EmployeeId)
+                @Html.HiddenFor(modelItem => Model.Employee[i].Id, new { @class = "form-control", @readonly = "readonly" })
+
+            }
+
+        </tbody>
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" id="save" />
+    </div>
+</form>

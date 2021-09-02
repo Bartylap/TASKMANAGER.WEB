@@ -25,7 +25,7 @@ namespace TASKMANAGER.WEB.Controllers
 
             var model = _cstr.GetAllConstruction("");
             return View(model);
- 
+
         }
         [HttpPost]
         public IActionResult Index(string searchString)
@@ -43,8 +43,8 @@ namespace TASKMANAGER.WEB.Controllers
         {
             var model = new AddConstructionVm();
             model.Date = DateTime.Now;
-           
-            
+
+
             return View(model);
         }
         [HttpPost]
@@ -65,11 +65,28 @@ namespace TASKMANAGER.WEB.Controllers
         //    _cstr.UpdateConstruction(model);
         //    return RedirectToAction("Index");
         //}
+
+
+
         [HttpGet]
         public IActionResult Clone(int id)
         {
             _cstr.Copy(id);
             return RedirectToAction("Index");
+        }
+
+
+        [HttpGet]
+        public IActionResult AddEmployeeToConstruction(int id)
+        {
+            var model = _cstr.AddEmployeeToConstructionView(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult AddEmployeeToConstruction(AddEmployeeToConstructionList model)
+        {
+            _cstr.AddEmployeeToConstruction(model);
+            return RedirectToAction("Details" , new{id = model.ConstructionId } );
         }
 
 

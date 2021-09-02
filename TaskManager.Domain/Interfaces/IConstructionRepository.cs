@@ -12,5 +12,6 @@ namespace TaskManager.Domain.Interfaces
         IQueryable<Construction> GetAllConstruction();
         Construction GetConstruction(int id);
         void UpdateConsrtuction(Construction model);
+        void AddEmployeeToConstruction(ConstructionEmployee result);
     }
 }

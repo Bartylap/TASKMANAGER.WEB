@@ -14,10 +14,12 @@ namespace TaskManager.Application.Services
     public class ConstructionService : IConstructionService 
     {
         private readonly IConstructionRepository _conRepo;
+        private readonly IEmployeeRepository _empRepo;
         private readonly IMapper _mapper;
-        public ConstructionService(IConstructionRepository conRepo, IMapper mapper)
+        public ConstructionService(IConstructionRepository conRepo, IMapper mapper, IEmployeeRepository empRepo)
         {
             _conRepo = conRepo;
+            _empRepo = empRepo;
             _mapper = mapper;
         }
         public AddConstructionVm GetToClone(int id)
@@ -65,7 +67,56 @@ namespace TaskManager.Application.Services
             var cstr = _mapper.Map<Construction>(model);
             _conRepo.UpdateConsrtuction(cstr);
         }
+        //----------------------//
+        public AddEmployeeToConstructionList AddEmployeeToConstructionView(int id)
+        {
+            var employees = _empRepo.GetAllUser()
+                .ProjectTo<AddEmployeeToConstruction>(_mapper.ConfigurationProvider).ToList();
+            var model = new AddEmployeeToConstructionList()
+            {
+                ConstructionId = id,
+                Employee = employees,
+                Count = employees.Count
+            };
+            return model;
+        }
+        public void AddEmployeeToConstruction(AddEmployeeToConstructionList model)
+        {
+
+            foreach (var e in model.Employee)
+            {
+                if (e.Check == true)
+                {
+                    var ce = new ConstructionEmployee()
+                    {
+                        ConstructionId = model.ConstructionId,
+                        EmployeeId = e.Id                
+                    };
+                    _conRepo.AddEmployeeToConstruction(ce);
+                }
+            }
+        }
 
 
+        //public void AddErrandToUser(ErrandListForAddToUserVm model)
+        //{
+        //    MyUserErrand result = new MyUserErrand();
+
+        //    foreach (var t in model.Errands)
+        //    {
+        //        if (t.IsChecked == true)
+        //        {
+        //            var mue = new MyUserErrand()
+        //            {
+        //                MyUserId = model.MyUserId,
+        //                ErrandId = t.Id
+        //            };
+        //            result = mue;
+
+        //        }
+        //    }
+        //}
+
+
+        }
     }
-}

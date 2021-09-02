@@ -32,6 +32,7 @@ namespace TaskManager.Application.ViewModels.Construction
 
 
             profile.CreateMap<DetailsConstructionVm, TaskManager.Domain.Models.Construction>().ReverseMap()
+                 .ForMember(a => a.Id, opt => opt.MapFrom(b=>b.Id))
                  .ForMember(a => a.Car, opt => opt.MapFrom(b => b.Car))
                  .ForMember(a => a.Flat, opt => opt.MapFrom(b => b.Flat))
                  .ForMember(a => a.Tolls, opt => opt.MapFrom(b => b.Tolls))

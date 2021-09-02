@@ -15,5 +15,7 @@ namespace TaskManager.Application.Interfaces
         DetailsConstructionVm GetConstruction(int id);
         void UpdateConstruction(DetailsConstructionVm model);
         AddConstructionVm GetToClone(int id);
+        AddEmployeeToConstructionList AddEmployeeToConstructionView(int id);
+        void AddEmployeeToConstruction(AddEmployeeToConstructionList model);
     }
 }
