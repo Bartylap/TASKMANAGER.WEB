@@ -57,5 +57,15 @@ namespace TaskManager.Infrastructure.Repositories
             _context.Constructions.Update(model);
             _context.SaveChanges();
         }
+
+
+        public void RemoveEmployeeFromConstruction(int empId , int consId)
+        {
+
+            var model = _context.ConstructionEmployee.FirstOrDefault(u => u.EmployeeId == empId && u.ConstructionId==consId);
+
+            _context.ConstructionEmployee.Remove(model);
+            _context.SaveChanges();
+        }
     }
 }

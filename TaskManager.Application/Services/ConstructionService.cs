@@ -11,7 +11,7 @@ using TaskManager.Domain.Models;
 
 namespace TaskManager.Application.Services
 {
-    public class ConstructionService : IConstructionService 
+    public class ConstructionService : IConstructionService
     {
         private readonly IConstructionRepository _conRepo;
         private readonly IEmployeeRepository _empRepo;
@@ -67,7 +67,7 @@ namespace TaskManager.Application.Services
             var cstr = _mapper.Map<Construction>(model);
             _conRepo.UpdateConsrtuction(cstr);
         }
-        //----------------------//
+
         public AddEmployeeToConstructionList AddEmployeeToConstructionView(int id)
         {
             var employees = _empRepo.GetAllUser()
@@ -97,26 +97,13 @@ namespace TaskManager.Application.Services
             }
         }
 
-
-        //public void AddErrandToUser(ErrandListForAddToUserVm model)
-        //{
-        //    MyUserErrand result = new MyUserErrand();
-
-        //    foreach (var t in model.Errands)
-        //    {
-        //        if (t.IsChecked == true)
-        //        {
-        //            var mue = new MyUserErrand()
-        //            {
-        //                MyUserId = model.MyUserId,
-        //                ErrandId = t.Id
-        //            };
-        //            result = mue;
-
-        //        }
-        //    }
-        //}
-
-
+        public void RemoveEmployeeFromConstruction(int empId, int consId)
+        {
+            _conRepo.RemoveEmployeeFromConstruction(empId, consId);
         }
+
+
+
+
+    }
     }

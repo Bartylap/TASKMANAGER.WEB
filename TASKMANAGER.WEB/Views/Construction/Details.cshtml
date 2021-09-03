@@ -69,14 +69,18 @@
                     <tbody>
                         @foreach (var item in Model.Employee)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FirstName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.LastName)
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                <a class="const_delete_emp" href="@Url.Action("RemoveEmployeeFromConstruction", "Construction", new { empId = item.Id, consId =Model.Id }) ">
+                                    <img src="~/css/edit-delete.png"> </a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
