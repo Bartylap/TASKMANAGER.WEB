@@ -103,6 +103,21 @@ namespace TaskManager.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Items",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Items", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Statuses",
                 columns: table => new
                 {
@@ -260,28 +275,6 @@ namespace TaskManager.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tools",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Qantity = table.Column<string>(nullable: true),
-                    ConstructionId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tools", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Tools_Constructions_ConstructionId",
-                        column: x => x.ConstructionId,
-                        principalTable: "Constructions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ConstructionEmployee",
                 columns: table => new
                 {
@@ -349,6 +342,31 @@ namespace TaskManager.Infrastructure.Migrations
                         principalTable: "Employees",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ConstructionItem",
+                columns: table => new
+                {
+                    ConstructionId = table.Column<int>(nullable: false),
+                    ItemId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ConstructionItem", x => new { x.ConstructionId, x.ItemId });
+                    table.ForeignKey(
+                        name: "FK_ConstructionItem_Constructions_ConstructionId",
+                        column: x => x.ConstructionId,
+                        principalTable: "Constructions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ConstructionItem_Items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "Items",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -513,6 +531,11 @@ namespace TaskManager.Infrastructure.Migrations
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ConstructionItem_ItemId",
+                table: "ConstructionItem",
+                column: "ItemId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_EmployeeAddresses_EmployeeId",
                 table: "EmployeeAddresses",
                 column: "EmployeeId");
@@ -541,11 +564,6 @@ namespace TaskManager.Infrastructure.Migrations
                 name: "IX_MyUserErrands_ErrandId",
                 table: "MyUserErrands",
                 column: "ErrandId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tools_ConstructionId",
-                table: "Tools",
-                column: "ConstructionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -572,6 +590,9 @@ namespace TaskManager.Infrastructure.Migrations
                 name: "ConstructionEmployee");
 
             migrationBuilder.DropTable(
+                name: "ConstructionItem");
+
+            migrationBuilder.DropTable(
                 name: "EmployeeAddresses");
 
             migrationBuilder.DropTable(
@@ -584,25 +605,25 @@ namespace TaskManager.Infrastructure.Migrations
                 name: "MyUserErrands");
 
             migrationBuilder.DropTable(
-                name: "Tools");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "TireTypes");
 
             migrationBuilder.DropTable(
+                name: "Items");
+
+            migrationBuilder.DropTable(
                 name: "Employees");
+
+            migrationBuilder.DropTable(
+                name: "Constructions");
 
             migrationBuilder.DropTable(
                 name: "Errands");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Constructions");
 
             migrationBuilder.DropTable(
                 name: "Categories");

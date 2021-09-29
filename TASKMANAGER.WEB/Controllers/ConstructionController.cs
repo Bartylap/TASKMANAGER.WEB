@@ -93,7 +93,18 @@ namespace TASKMANAGER.WEB.Controllers
             _cstr.RemoveEmployeeFromConstruction(empId, consId);
             return RedirectToAction("Details", new { id = consId });
         }
-
+        [HttpGet]
+        public IActionResult AddItemToConstruction(int id)
+        {
+            var model = _cstr.AddItemToConstructionView(id);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult AddItemToConstruction(AddItemToConstructionListVm model)
+        {
+            _cstr.AddItemToConstruction(model);
+            return RedirectToAction("Details", new { id = model.ConstructionId });
+        }
 
 
 

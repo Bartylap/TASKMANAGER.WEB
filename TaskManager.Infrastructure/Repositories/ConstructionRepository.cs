@@ -30,6 +30,11 @@ namespace TaskManager.Infrastructure.Repositories
             _context.ConstructionEmployee.Add(result);
             _context.SaveChanges();
         }
+        public void AddItemToConstruction(ConstructionItem ie)
+        {
+            _context.ConstructionItem.Add(ie);
+            _context.SaveChanges();
+        }
 
         public IQueryable<Construction> GetAllConstruction()
         {
@@ -43,7 +48,7 @@ namespace TaskManager.Infrastructure.Repositories
 
             var construction = _context.Constructions.AsNoTracking()
                 .Include(e => e.ConstructionEmployees).ThenInclude(e => e.Employee)
-                .Include(e => e.Tolls)
+                .Include(e => e.ConstructionItems).ThenInclude(e=>e.Item)
                 .Include(e => e.Car)
                 .Include(e => e.Flat)
                 .FirstOrDefault(e => e.Id == cstrId);
@@ -67,5 +72,7 @@ namespace TaskManager.Infrastructure.Repositories
             _context.ConstructionEmployee.Remove(model);
             _context.SaveChanges();
         }
+
+
     }
 }

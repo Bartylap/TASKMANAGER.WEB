@@ -22,8 +22,7 @@ namespace TaskManager.Application.ViewModels.Construction
 
         public List<CarsListAtTheConstructionVm> Car { get; set; }
         public List<FlatListAtTheConstructionVm> Flat { get; set; }
-        public List<ToolListAtTheConstructionVm> Tolls { get; set; }
-
+        public IList<ToolListAtTheConstructionVm> Items { get; set; }
         public IList<EmployeeListAtTheConstructionVm> Employee { get; set; }
 
 
@@ -35,7 +34,7 @@ namespace TaskManager.Application.ViewModels.Construction
                  .ForMember(a => a.Id, opt => opt.MapFrom(b=>b.Id))
                  .ForMember(a => a.Car, opt => opt.MapFrom(b => b.Car))
                  .ForMember(a => a.Flat, opt => opt.MapFrom(b => b.Flat))
-                 .ForMember(a => a.Tolls, opt => opt.MapFrom(b => b.Tolls))
+                 .ForMember(a => a.Items, opt => opt.MapFrom(b => b.ConstructionItems.Select(y=>y.Item).ToList()))
                  .ForMember(a => a.Employee, opt => opt.MapFrom(x => x.ConstructionEmployees.Select(y => y.Employee).ToList()));
         }
     }

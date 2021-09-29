@@ -20,9 +20,9 @@ namespace TaskManager.Application.ViewModels.Construction
             profile.CreateMap<EmployeeListAtTheConstructionVm, TaskManager.Domain.Models.Employee>().ReverseMap()
                      .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
                      .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName));
-
-
         }
+
+
                 
           
     }

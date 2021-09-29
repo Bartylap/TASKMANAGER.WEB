@@ -18,5 +18,8 @@ namespace TaskManager.Application.Interfaces
         AddEmployeeToConstructionList AddEmployeeToConstructionView(int id);
         void AddEmployeeToConstruction(AddEmployeeToConstructionList model);
         void RemoveEmployeeFromConstruction(int empId, int consId);
+        AddItemToConstructionListVm AddItemToConstructionView(int id);
+        void AddItemToConstruction(AddItemToConstructionListVm model);
+        void RemoveItemFromConstruction(int itemId, int consId);
     }
 }

@@ -10,7 +10,7 @@ using TaskManager.Infrastructure;
 namespace TaskManager.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210831140400_a1")]
+    [Migration("20210929090825_a1")]
     partial class a1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -354,6 +354,24 @@ namespace TaskManager.Infrastructure.Migrations
                     b.ToTable("ConstructionEmployee");
                 });
 
+            modelBuilder.Entity("TaskManager.Domain.Models.ConstructionItem", b =>
+                {
+                    b.Property<int>("ConstructionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("ConstructionId", "ItemId");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("ConstructionItem");
+                });
+
             modelBuilder.Entity("TaskManager.Domain.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -508,6 +526,27 @@ namespace TaskManager.Infrastructure.Migrations
                     b.ToTable("Flats");
                 });
 
+            modelBuilder.Entity("TaskManager.Domain.Models.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Items");
+                });
+
             modelBuilder.Entity("TaskManager.Domain.Models.MyUserErrand", b =>
                 {
                     b.Property<string>("MyUserId")
@@ -578,32 +617,6 @@ namespace TaskManager.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TireTypes");
-                });
-
-            modelBuilder.Entity("TaskManager.Domain.Models.Tool", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ConstructionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Qantity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ConstructionId");
-
-                    b.ToTable("Tools");
                 });
 
             modelBuilder.Entity("TaskManager.Domain.Models.MyUser", b =>
@@ -696,6 +709,21 @@ namespace TaskManager.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TaskManager.Domain.Models.ConstructionItem", b =>
+                {
+                    b.HasOne("TaskManager.Domain.Models.Construction", "Construction")
+                        .WithMany("ConstructionItems")
+                        .HasForeignKey("ConstructionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManager.Domain.Models.Item", "Item")
+                        .WithMany("ConstructionItems")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TaskManager.Domain.Models.EmployeeAddress", b =>
                 {
                     b.HasOne("TaskManager.Domain.Models.Employee", "Employee")
@@ -745,13 +773,6 @@ namespace TaskManager.Infrastructure.Migrations
                         .HasForeignKey("MyUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TaskManager.Domain.Models.Tool", b =>
-                {
-                    b.HasOne("TaskManager.Domain.Models.Construction", "Construction")
-                        .WithMany("Tolls")
-                        .HasForeignKey("ConstructionId");
                 });
 #pragma warning restore 612, 618
         }

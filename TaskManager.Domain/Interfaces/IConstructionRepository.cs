@@ -13,6 +13,7 @@ namespace TaskManager.Domain.Interfaces
         Construction GetConstruction(int id);
         void UpdateConsrtuction(Construction model);
         void AddEmployeeToConstruction(ConstructionEmployee result);
+        void AddItemToConstruction(ConstructionItem ie);
         void RemoveEmployeeFromConstruction(int empId, int consId);
     }
 }

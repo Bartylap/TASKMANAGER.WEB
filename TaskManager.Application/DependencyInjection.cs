@@ -18,6 +18,7 @@ namespace TaskManager.Application
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<ICarService, CarService>();
             services.AddTransient<IConstructionService, ConstructionService>();
+            services.AddTransient<IWarehouseService, WarehouseService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

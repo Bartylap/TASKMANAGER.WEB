@@ -15,11 +15,13 @@ namespace TaskManager.Application.Services
     {
         private readonly IConstructionRepository _conRepo;
         private readonly IEmployeeRepository _empRepo;
+        private readonly IWarehouseRepository _warRepo;
         private readonly IMapper _mapper;
-        public ConstructionService(IConstructionRepository conRepo, IMapper mapper, IEmployeeRepository empRepo)
+        public ConstructionService(IConstructionRepository conRepo, IMapper mapper, IEmployeeRepository empRepo, IWarehouseRepository warRepo)
         {
             _conRepo = conRepo;
             _empRepo = empRepo;
+            _warRepo = warRepo;
             _mapper = mapper;
         }
         public AddConstructionVm GetToClone(int id)
@@ -102,8 +104,40 @@ namespace TaskManager.Application.Services
             _conRepo.RemoveEmployeeFromConstruction(empId, consId);
         }
 
+        public AddItemToConstructionListVm AddItemToConstructionView(int id)
+        {
+            var items = _warRepo.GetAllItem()
+                .ProjectTo<AddItemToConstructionVm>(_mapper.ConfigurationProvider).ToList();
+            var model = new AddItemToConstructionListVm()
+            {
+                ConstructionId = id,
+                Items = items,
+                Count = items.Count
+            };
+            return model;
 
+        }
 
+        public void AddItemToConstruction(AddItemToConstructionListVm model)
+        {
+            foreach (var i in model.Items)
+            {
+                if (i.Check == true)
+                {
+                    var ie = new ConstructionItem()
+                    {
+                        ConstructionId = model.ConstructionId,
+                        ItemId = i.Id,
 
+                    };
+                    _conRepo.AddItemToConstruction(ie);
+                }
+            }
+        }
+
+        public void RemoveItemFromConstruction(int itemId, int consId)
+        {
+            throw new NotImplementedException();
+        }
     }
     }

@@ -1,0 +1,52 @@
+﻿@model TaskManager.Application.ViewModels.Construction.AddItemToConstructionListVm
+
+@{
+    ViewData["Title"] = "AddItemToConstruction";
+}
+
+<h1>AddEmployeeToConstruction</h1>
+
+<form asp-action="AddItemToConstruction">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nazwa
+                </th>
+                <th>
+                    Ilośc
+                </th>
+                <th>
+                    <center>Zaznacz</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Items.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Items[i].Name, new { @class = "form-control", @readonly = "readonly" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Items[i].Qantity, new { @class = "form-control", @readonly = "readonly" })
+                    </td>
+
+                    <td>
+                        <center> <input class="form-check-input" asp-for="Items[i].Check" /></center>
+                    </td>
+
+                </tr>
+
+                @Html.HiddenFor(modelItem => Model.ConstructionId)
+                @Html.HiddenFor(modelItem => Model.ItemId)
+                @Html.HiddenFor(modelItem => Model.Items[i].Id, new { @class = "form-control", @readonly = "readonly" })
+
+            }
+
+        </tbody>
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Dodaj" class="btn btn-primary" id="save" />
+    </div>
+</form>

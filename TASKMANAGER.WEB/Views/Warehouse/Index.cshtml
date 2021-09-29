@@ -1,0 +1,38 @@
+﻿@model TaskManager.Application.ViewModels.Warehouse.ItemListVm
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Magazyn</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Ilość
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            <td>
+                @Html.DisplayFor(modelItem => item.Qantity)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

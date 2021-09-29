@@ -14,7 +14,7 @@ namespace TaskManager.Infrastructure
         public DbSet<EmployeeContact> EmployeeContacts { get; set; }
         public DbSet<Flat> Flats { get; set; }
         public DbSet<TireType> TireTypes { get; set; }
-        public DbSet<Tool> Tools { get; set; }
+        public DbSet<Item> Items { get; set; }
         public DbSet<Errand> Errands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Status> Statuses { get; set; }
@@ -23,6 +23,7 @@ namespace TaskManager.Infrastructure
         public DbSet<Car> Cars { get; set; }
         public DbSet<Construction> Constructions { get; set; }
         public DbSet<ConstructionEmployee> ConstructionEmployee { get; set; }
+        public DbSet<ConstructionItem> ConstructionItem { get; set; }
         public Context(DbContextOptions options) : base(options)
         {
         }
@@ -54,6 +55,20 @@ namespace TaskManager.Infrastructure
                 .HasOne<Employee>(e => e.Employee)
                 .WithMany(c => c.ConstructionEmployees)
                 .HasForeignKey(f => f.EmployeeId);
+
+            //------------------------------------------------//
+
+            builder.Entity<ConstructionItem>()
+    .HasKey(e => new { e.ConstructionId, e.ItemId });
+
+            builder.Entity<ConstructionItem>()
+                .HasOne<Construction>(c => c.Construction)
+                .WithMany(e => e.ConstructionItems)
+                .HasForeignKey(f => f.ConstructionId);
+            builder.Entity<ConstructionItem>()
+                .HasOne<Item>(e => e.Item)
+                .WithMany(c => c.ConstructionItems)
+                .HasForeignKey(f => f.ItemId);
 
 
 
